@@ -76,4 +76,5 @@ jobs:
         git config --global user.name "Yard1"
         git add -A
         git commit -m "Update webpage (automatic)"
+        git pull
         git push
