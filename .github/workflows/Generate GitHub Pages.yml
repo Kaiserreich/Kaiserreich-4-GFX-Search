@@ -1,0 +1,75 @@
+name: Generate GitHub Pages
+
+on:
+  push:
+    branches:
+    - master
+    - gh-pages
+    paths:
+    - '.github/workflows/Generate GitHub Pages.yml'
+    - '.github-pages/**/*'
+    - '.gitignore'
+    - 'images/**/*'
+    - 'gfx/interface/texticons/**/*.dds'
+    - 'gfx/interface/texticons/**/*.tga'
+    - 'gfx/interface/event_pictures/**/*.dds'
+    - 'gfx/interface/event_pictures/**/*.tga'
+    - 'gfx/interface/decisions/**/*.dds'
+    - 'gfx/interface/decisions/**/*.tga'
+    - 'gfx/interface/goals/**/*.dds'
+    - 'gfx/interface/ideas/**/*.dds'
+    - 'gfx/interface/goals/**/*.tga'
+    - 'gfx/interface/ideas/**/*.tga'
+    - 'interface/**/*.gfx'
+  repository_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Kaiserreich/Kaiserreich-4-Development master branch
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GHPAGES_PUSH_TOKEN }}
+        ref: master
+        path: ''
+        repository: 'Kaiserreich/Kaiserreich-4-Development'
+    - name: Checkout master branch
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GHPAGES_PUSH_TOKEN }}
+        ref: master
+        path: gh-pages
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r $GITHUB_WORKSPACE/gh-pages/.github-pages/requirements.txt
+    - name: Generate webpage
+      run: |
+        rm -rf $GITHUB_WORKSPACE/gh-pages/gfx/texticons/
+        rm -rf $GITHUB_WORKSPACE/gh-pages/gfx/event_pictures/
+        rm -rf $GITHUB_WORKSPACE/gh-pages/gfx/interface/
+        mkdir -p $GITHUB_WORKSPACE/gh-pages/gfx/interface/
+        mv $GITHUB_WORKSPACE/gfx/texticons $GITHUB_WORKSPACE/gh-pages/gfx
+        mv $GITHUB_WORKSPACE/gfx/event_pictures $GITHUB_WORKSPACE/gh-pages/gfx
+        mv $GITHUB_WORKSPACE/gfx/interface/goals $GITHUB_WORKSPACE/gh-pages/gfx/interface
+        mv $GITHUB_WORKSPACE/gfx/interface/ideas $GITHUB_WORKSPACE/gh-pages/gfx/interface
+        mv $GITHUB_WORKSPACE/gfx/interface/decisions $GITHUB_WORKSPACE/gh-pages/gfx/interface
+        mv $GITHUB_WORKSPACE/interface/ $GITHUB_WORKSPACE/gh-pages
+        cd $GITHUB_WORKSPACE/gh-pages
+        python .github-pages/hoi4_icon_search_gen.py --goals "./interface/KR_goals.gfx" --ideas "./interface/KR_ideas.gfx" "./interface/KR_ideas_africa.gfx" "./interface/KR_ideas_americas.gfx" "./interface/KR_ideas_asia.gfx" "./interface/KR_ideas_europe.gfx" --texticons "./interface/KR_texticons.gfx" --events "./interface/KR_eventpics.gfx" "./interface/KR_eventpics_news_old.gfx" --decisions "./interface/KR_decisions.gfx" --title "Kaiserreich Icon Search" --favicon "./kr_icon.png"
+    - name: Commit and push files
+      run: |
+        cd $GITHUB_WORKSPACE/gh-pages
+        if [ -z "$(git status --porcelain)" ]; then 
+          exit 0
+        fi
+        git config --global user.email "cacombes@gmail.com"
+        git config --global user.name "Zankoas"
+        git add -A
+        git commit -m "Update webpage (automatic)"
+        git push
