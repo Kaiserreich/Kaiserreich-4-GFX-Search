@@ -51,7 +51,7 @@ jobs:
     - name: Check modified files
       if: github.event_name == 'repository_dispatch'
       run: |
-        MODIFIED_FILES=$(sudo cat $GITHUB_EVENT_PATH | jq -r '.action')
+        MODIFIED_FILES=${{ github.event.client_payload.files }}
         export MODIFIED_FILES
         echo "::set-env name=MODIFIED_FILES::$MODIFIED_FILES"
         echo $MODIFIED_FILES
