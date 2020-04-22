@@ -148,7 +148,7 @@ def generate_html(goals, ideas, texticons, events, decisions, title, favicon):
     html = html.replace('@TITLE', title)
     favicon = favicon if favicon else ""
     html = html.replace('@FAVICON', favicon)
-    html = html.replace('@UPDATE_DATE', str(datetime.datetime.utcnow()))
+    #html = html.replace('@UPDATE_DATE', str(datetime.datetime.utcnow())) # moved to the action itself so it can only be updated on push
 
     with open('index.html', 'w') as f:
         f.write(html)
