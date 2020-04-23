@@ -283,8 +283,20 @@
           <span class="button toggle-button-span">Events</span>
         </label>
         <label class="toggle-button">
+          <input id="news-events-toggle" type="checkbox" onclick="toggleIcons('news-events-toggle')" checked>
+          <span class="button toggle-button-span">News Events</span>
+        </label>
+        <label class="toggle-button">
           <input id="decisions-toggle" type="checkbox" onclick="toggleIcons('decisions-toggle')" checked>
           <span class="button toggle-button-span">Decisions</span>
+        </label>
+        <label class="toggle-button">
+          <input id="decisions-cat-toggle" type="checkbox" onclick="toggleIcons('decisions-cat-toggle')" checked>
+          <span class="button toggle-button-span">Decision Categories</span>
+        </label>
+        <label class="toggle-button">
+          <input id="decisions-pics-toggle" type="checkbox" onclick="toggleIcons('decisions-pics-toggle')" checked>
+          <span class="button toggle-button-span">Decision Category Pictures</span>
         </label>
       </div>
       <div id="goalsSection" class="docs-section">
@@ -303,9 +315,21 @@
         <h6 class="docs-header">Events (@EVENTS_NUM)</h6>
         <div class="icon-container flex flex-wrap justify-left mt-3">@EVENTS_ICONS</div>
       </div>
+      <div id="newsEventsSection" class="docs-section">
+        <h6 class="docs-header">News Events (@NEWSEVENTS_NUM)</h6>
+        <div class="icon-container flex flex-wrap justify-left mt-3">@NEWSEVENTS_ICONS</div>
+      </div>
       <div id="decisionsSection" class="docs-section">
         <h6 class="docs-header">Decisions (@DECISIONS_NUM)</h6>
         <div class="icon-container flex flex-wrap justify-left mt-3">@DECISIONS_ICONS</div>
+      </div>
+      <div id="decisionsCatSection" class="docs-section">
+        <h6 class="docs-header">Decision Category Icons (@DECISIONSCAT_NUM)</h6>
+        <div class="icon-container flex flex-wrap justify-left mt-3">@DECISIONSCAT_ICONS</div>
+      </div>
+      <div id="decisionsPicsSection" class="docs-section">
+        <h6 class="docs-header">Decision Category Pictures (@DECISIONSPICS_NUM)</h6>
+        <div class="icon-container flex flex-wrap justify-left mt-3">@DECISIONSPICS_ICONS</div>
       </div>
     </div>
     <footer>
@@ -351,8 +375,17 @@
       case 'events-toggle':
         elementToHide = document.getElementById('eventsSection');
         break;
+      case 'news-events-toggle':
+        elementToHide = document.getElementById('newsEventsSection');
+        break;
       case 'decisions-toggle':
         elementToHide = document.getElementById('decisionsSection');
+        break;
+      case 'decisions-cat-toggle':
+        elementToHide = document.getElementById('decisionsCatSection');
+        break;
+      case 'decisions-pics-toggle':
+        elementToHide = document.getElementById('decisionsPicsSection');
         break;
       default:
         return;

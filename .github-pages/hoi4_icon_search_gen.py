@@ -61,7 +61,7 @@ def read_gfx(gfx_paths):
     return (gfx, gfx_files)
 
 
-def generate_html(goals, ideas, texticons, events, decisions, title, favicon):
+def generate_html(goals, ideas, texticons, events, news_events, decisions, decisions_cat, decisions_pics, title, favicon):
     with open(os.path.join('.github-pages', 'index.template'), 'r') as f:
         html = f.read()
 
@@ -129,6 +129,22 @@ def generate_html(goals, ideas, texticons, events, decisions, title, favicon):
     html = html.replace('@EVENTS_ICONS', ''.join(events_entries))
     html = html.replace('@EVENTS_NUM', str(events_num))
 
+    news_events_entries = []
+    news_events_num = 0
+
+    for event, path in news_events.items():
+        img_src = os.path.splitext(path)[0] + '.png'
+        if os.path.exists(img_src):
+            news_events_num += 1
+            news_events_entries.append('''
+          <div data-clipboard-text="%s" data-search-text="%s" title="%s" class="icon">
+            <img src="%s" alt="%s">
+          </div>
+        ''' % (event, event, event, img_src, event))
+
+    html = html.replace('@NEWSEVENTS_ICONS', ''.join(news_events_entries))
+    html = html.replace('@NEWSEVENTS_NUM', str(news_events_num))
+
     decisions_entries = []
     decisions_num = 0
 
@@ -144,6 +160,38 @@ def generate_html(goals, ideas, texticons, events, decisions, title, favicon):
 
     html = html.replace('@DECISIONS_ICONS', ''.join(decisions_entries))
     html = html.replace('@DECISIONS_NUM', str(decisions_num))
+
+    decisions_cat_entries = []
+    decisions_cat_num = 0
+
+    for decision, path in decisions_cat.items():
+        img_src = os.path.splitext(path)[0] + '.png'
+        if os.path.exists(img_src):
+            decisions_cat_num += 1
+            decisions_cat_entries.append('''
+          <div data-clipboard-text="%s" data-search-text="%s" title="%s" class="icon">
+            <img src="%s" alt="%s">
+          </div>
+        ''' % (decision, decision, decision, img_src, decision))
+
+    html = html.replace('@DECISIONSCAT_ICONS', ''.join(decisions_cat_entries))
+    html = html.replace('@DECISIONSCAT_NUM', str(decisions_cat_num))
+
+    decisions_pics_entries = []
+    decisions_pics_num = 0
+
+    for decision, path in decisions_pics.items():
+        img_src = os.path.splitext(path)[0] + '.png'
+        if os.path.exists(img_src):
+            decisions_pics_num += 1
+            decisions_pics_entries.append('''
+          <div data-clipboard-text="%s" data-search-text="%s" title="%s" class="icon">
+            <img src="%s" alt="%s">
+          </div>
+        ''' % (decision, decision, decision, img_src, decision))
+
+    html = html.replace('@DECISIONSPICS_ICONS', ''.join(decisions_pics_entries))
+    html = html.replace('@DECISIONSPICS_NUM', str(decisions_pics_num))
 
     html = html.replace('@TITLE', title)
     favicon = favicon if favicon else ""
@@ -164,10 +212,13 @@ def main():
     ideas, ideas_files = read_gfx(args.ideas)
     texticons, texticons_files = read_gfx(args.texticons)
     events, events_files = read_gfx(args.events)
+    news_events, news_events_files = read_gfx(args.news_events)
     decisions, decisions_files = read_gfx(args.decisions)
-    bad_files = convert_images([goals_files.keys(), ideas_files.keys(), texticons_files.keys(), events_files.keys(), decisions_files.keys()],
+    decisions_cat, decisions_cat_files = read_gfx(args.decisions_cat)
+    decisions_pics, decisions_pics_files = read_gfx(args.decisions_pics)
+    bad_files = convert_images([goals_files.keys(), ideas_files.keys(), texticons_files.keys(), events_files.keys(), news_events_files.keys(), decisions_files.keys(), decisions_cat_files.keys(), decisions_pics_files.keys()],
                    args.modified_images)
-    generate_html(goals, ideas, texticons, events, decisions, args.title, args.favicon)
+    generate_html(goals, ideas, texticons, events, news_events, decisions, decisions_cat, decisions_pics, args.title, args.favicon)
     print("The following files had exceptions:")
     for f in bad_files:
         print(f[0])
@@ -186,8 +237,14 @@ def setup_cli_arguments():
                         help='Paths to texticons interface gfx files', required=True)
     parser.add_argument('--events', nargs='*',
                         help='Paths to events interface gfx files', required=True)
+    parser.add_argument('--news-events', nargs='*', dest="news_events",
+                        help='Paths to news events interface gfx files', required=True)
     parser.add_argument('--decisions', nargs='*',
                         help='Paths to decisions interface gfx files', required=True)
+    parser.add_argument('--decisions-cat', nargs='*', dest="decisions_cat",
+                        help='Paths to decisions category interface gfx files', required=True)
+    parser.add_argument('--decisions-pics', nargs='*', dest="decisions_pics",
+                        help='Paths to decision category picture interface gfx files', required=True)
     parser.add_argument('--title',
                         help='Webpage title', required=True)
     parser.add_argument('--favicon',
@@ -200,7 +257,10 @@ def setup_cli_arguments():
     args.ideas = [os.path.normpath(x) for x in args.ideas] if args.ideas else []
     args.texticons = [os.path.normpath(x) for x in args.texticons] if args.texticons else []
     args.events = [os.path.normpath(x) for x in args.events] if args.events else []
+    args.news_events = [os.path.normpath(x) for x in args.news_events] if args.news_events else []
     args.decisions = [os.path.normpath(x) for x in args.decisions] if args.decisions else []
+    args.decisions_cat = [os.path.normpath(x) for x in args.decisions_cat] if args.decisions_cat else []
+    args.decisions_pics = [os.path.normpath(x) for x in args.decisions_pics] if args.decisions_pics else []
     if args.modified_images:
         args.modified_images = [os.path.normpath(
             x) for x in args.modified_images]
