@@ -283,8 +283,20 @@
           <span class="button toggle-button-span">Events</span>
         </label>
         <label class="toggle-button">
+          <input id="news-events-toggle" type="checkbox" onclick="toggleIcons('news-events-toggle')" checked>
+          <span class="button toggle-button-span">News Events</span>
+        </label>
+        <label class="toggle-button">
           <input id="decisions-toggle" type="checkbox" onclick="toggleIcons('decisions-toggle')" checked>
           <span class="button toggle-button-span">Decisions</span>
+        </label>
+        <label class="toggle-button">
+          <input id="decisions-cat-toggle" type="checkbox" onclick="toggleIcons('decisions-cat-toggle')" checked>
+          <span class="button toggle-button-span">Decision Categories</span>
+        </label>
+        <label class="toggle-button">
+          <input id="decisions-pics-toggle" type="checkbox" onclick="toggleIcons('decisions-pics-toggle')" checked>
+          <span class="button toggle-button-span">Decision Category Pictures</span>
         </label>
       </div>
       <div id="goalsSection" class="docs-section">
@@ -8300,7 +8312,7 @@
         </div>
       </div>
       <div id="eventsSection" class="docs-section">
-        <h6 class="docs-header">Events (1550)</h6>
+        <h6 class="docs-header">Events (1335)</h6>
         <div class="icon-container flex flex-wrap justify-left mt-3">
           <div data-clipboard-text="INTRO_main" data-search-text="INTRO_main" title="INTRO_main" class="icon">
             <img src="gfx/event_pictures/INTRO_main.png" alt="INTRO_main">
@@ -8486,10 +8498,6 @@
             <img src="gfx/event_pictures/Europe/Germany/german_women.png" alt="german_women">
           </div>
         
-          <div data-clipboard-text="GFX_news_event_GER_wilhelm_dead" data-search-text="GFX_news_event_GER_wilhelm_dead" title="GFX_news_event_GER_wilhelm_dead" class="icon">
-            <img src="gfx/event_pictures/News Events/Europe/news_event_GER_wilhelm_dead.png" alt="GFX_news_event_GER_wilhelm_dead">
-          </div>
-        
           <div data-clipboard-text="GER_schleicher" data-search-text="GER_schleicher" title="GER_schleicher" class="icon">
             <img src="gfx/event_pictures/Europe/Germany/GER_schleicher.png" alt="GER_schleicher">
           </div>
@@ -8604,10 +8612,6 @@
         
           <div data-clipboard-text="GFX_OTT_intro02" data-search-text="GFX_OTT_intro02" title="GFX_OTT_intro02" class="icon">
             <img src="gfx/event_pictures/Europe/Ottomans/57Alay01.png" alt="GFX_OTT_intro02">
-          </div>
-        
-          <div data-clipboard-text="GFX_osman_fuad_coronation" data-search-text="GFX_osman_fuad_coronation" title="GFX_osman_fuad_coronation" class="icon">
-            <img src="gfx/event_pictures/Europe/Ottomans/news_event_osman_fuad_coronation.png" alt="GFX_osman_fuad_coronation">
           </div>
         
           <div data-clipboard-text="GFX_Portugal_004" data-search-text="GFX_Portugal_004" title="GFX_Portugal_004" class="icon">
@@ -10826,10 +10830,6 @@
             <img src="gfx/event_pictures/Europe/Lithuania/seinius.png" alt="GFX_seinius">
           </div>
         
-          <div data-clipboard-text="GFX_OTT_victory" data-search-text="GFX_OTT_victory" title="GFX_OTT_victory" class="icon">
-            <img src="gfx/event_pictures/Europe/Ottomans/OTT_Yeni_Mecmua_News.png" alt="GFX_OTT_victory">
-          </div>
-        
           <div data-clipboard-text="USA_Wall_Street" data-search-text="USA_Wall_Street" title="USA_Wall_Street" class="icon">
             <img src="gfx/event_pictures/North America/United_States/USA_Wall_Street.png" alt="USA_Wall_Street">
           </div>
@@ -11094,10 +11094,6 @@
             <img src="gfx/event_pictures/North America/United_States/USA_floyd_olson.png" alt="GFX_USA_floyd_olson">
           </div>
         
-          <div data-clipboard-text="GFX_USA_huey_dead" data-search-text="GFX_USA_huey_dead" title="GFX_USA_huey_dead" class="icon">
-            <img src="gfx/event_pictures/North America/United_States/USA_huey_dead.png" alt="GFX_USA_huey_dead">
-          </div>
-        
           <div data-clipboard-text="GFX_USA_huey_long" data-search-text="GFX_USA_huey_long" title="GFX_USA_huey_long" class="icon">
             <img src="gfx/event_pictures/North America/United_States/USA_huey_long.png" alt="GFX_USA_huey_long">
           </div>
@@ -11138,16 +11134,8 @@
             <img src="gfx/event_pictures/North America/United_States/USA_reed.png" alt="GFX_USA_reed">
           </div>
         
-          <div data-clipboard-text="GFX_USA_reed_dead" data-search-text="GFX_USA_reed_dead" title="GFX_USA_reed_dead" class="icon">
-            <img src="gfx/event_pictures/North America/United_States/USA_reed_dead.png" alt="GFX_USA_reed_dead">
-          </div>
-        
           <div data-clipboard-text="GFX_USA_victory_celebration" data-search-text="GFX_USA_victory_celebration" title="GFX_USA_victory_celebration" class="icon">
             <img src="gfx/event_pictures/North America/United_States/USA_victory_celebration.png" alt="GFX_USA_victory_celebration">
-          </div>
-        
-          <div data-clipboard-text="GFX_USA_victory_celebration_news" data-search-text="GFX_USA_victory_celebration_news" title="GFX_USA_victory_celebration_news" class="icon">
-            <img src="gfx/event_pictures/North America/United_States/USA_victory_celebration_news.png" alt="GFX_USA_victory_celebration_news">
           </div>
         
           <div data-clipboard-text="GFX_NEE_road_Boston" data-search-text="GFX_NEE_road_Boston" title="GFX_NEE_road_Boston" class="icon">
@@ -11284,26 +11272,6 @@
         
           <div data-clipboard-text="GFX_report_event_ITA_pope" data-search-text="GFX_report_event_ITA_pope" title="GFX_report_event_ITA_pope" class="icon">
             <img src="gfx/event_pictures/Europe/Italy/report_event_ITA_pope.png" alt="GFX_report_event_ITA_pope">
-          </div>
-        
-          <div data-clipboard-text="GFX_news_event_ITA_balbo" data-search-text="GFX_news_event_ITA_balbo" title="GFX_news_event_ITA_balbo" class="icon">
-            <img src="gfx/event_pictures/News Events/Europe/news_event_ITA_balbo.png" alt="GFX_news_event_ITA_balbo">
-          </div>
-        
-          <div data-clipboard-text="GFX_news_event_ITA_milan" data-search-text="GFX_news_event_ITA_milan" title="GFX_news_event_ITA_milan" class="icon">
-            <img src="gfx/event_pictures/News Events/Europe/news_event_ITA_milan.png" alt="GFX_news_event_ITA_milan">
-          </div>
-        
-          <div data-clipboard-text="GFX_news_event_ITA_big_crowd" data-search-text="GFX_news_event_ITA_big_crowd" title="GFX_news_event_ITA_big_crowd" class="icon">
-            <img src="gfx/event_pictures/News Events/Europe/news_event_ITA_big_crowd.png" alt="GFX_news_event_ITA_big_crowd">
-          </div>
-        
-          <div data-clipboard-text="GFX_news_event_ITA_kingdom" data-search-text="GFX_news_event_ITA_kingdom" title="GFX_news_event_ITA_kingdom" class="icon">
-            <img src="gfx/event_pictures/News Events/Europe/news_event_ITA_kingdom.png" alt="GFX_news_event_ITA_kingdom">
-          </div>
-        
-          <div data-clipboard-text="GFX_news_event_ITA_parliament" data-search-text="GFX_news_event_ITA_parliament" title="GFX_news_event_ITA_parliament" class="icon">
-            <img src="gfx/event_pictures/News Events/Europe/news_event_ITA_parliament.png" alt="GFX_news_event_ITA_parliament">
           </div>
         
           <div data-clipboard-text="GFX_report_event_ITA_protest" data-search-text="GFX_report_event_ITA_protest" title="GFX_report_event_ITA_protest" class="icon">
@@ -13554,6 +13522,186 @@
             <img src="gfx/event_pictures/Europe/Finland/FIN_king_fredrik.png" alt="GFX_FIN_king_fredrik">
           </div>
         
+          <div data-clipboard-text="GFX_YUN_army" data-search-text="GFX_YUN_army" title="GFX_YUN_army" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_army.png" alt="GFX_YUN_army">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_Army_marches_home" data-search-text="GFX_YUN_Army_marches_home" title="GFX_YUN_Army_marches_home" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_Army_marches_home.png" alt="GFX_YUN_Army_marches_home">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_Artillery" data-search-text="GFX_YUN_Artillery" title="GFX_YUN_Artillery" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_Artillery.png" alt="GFX_YUN_Artillery">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_artillery_fire" data-search-text="GFX_YUN_artillery_fire" title="GFX_YUN_artillery_fire" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_artillery_fire.png" alt="GFX_YUN_artillery_fire">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_artillery_man" data-search-text="GFX_YUN_artillery_man" title="GFX_YUN_artillery_man" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_artillery_man.png" alt="GFX_YUN_artillery_man">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_countryside" data-search-text="GFX_YUN_countryside" title="GFX_YUN_countryside" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_countryside.png" alt="GFX_YUN_countryside">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_gathering" data-search-text="GFX_YUN_gathering" title="GFX_YUN_gathering" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_gathering.png" alt="GFX_YUN_gathering">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_general_speech" data-search-text="GFX_YUN_general_speech" title="GFX_YUN_general_speech" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_general_speech.png" alt="GFX_YUN_general_speech">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_inspection" data-search-text="GFX_YUN_inspection" title="GFX_YUN_inspection" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_inspection.png" alt="GFX_YUN_inspection">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_intellectuals" data-search-text="GFX_YUN_intellectuals" title="GFX_YUN_intellectuals" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_intellectuals.png" alt="GFX_YUN_intellectuals">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_KMT" data-search-text="GFX_YUN_KMT" title="GFX_YUN_KMT" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_KMT.png" alt="GFX_YUN_KMT">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_KMT_Army" data-search-text="GFX_YUN_KMT_Army" title="GFX_YUN_KMT_Army" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_KMT_Army.png" alt="GFX_YUN_KMT_Army">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_KMT_march" data-search-text="GFX_YUN_KMT_march" title="GFX_YUN_KMT_march" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_KMT_march.png" alt="GFX_YUN_KMT_march">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_KMT_Parade" data-search-text="GFX_YUN_KMT_Parade" title="GFX_YUN_KMT_Parade" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_KMT_Parade.png" alt="GFX_YUN_KMT_Parade">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_KMT_soldier" data-search-text="GFX_YUN_KMT_soldier" title="GFX_YUN_KMT_soldier" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_KMT_soldier.png" alt="GFX_YUN_KMT_soldier">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_kunming_academy" data-search-text="GFX_YUN_kunming_academy" title="GFX_YUN_kunming_academy" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_kunming_academy.png" alt="GFX_YUN_kunming_academy">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_kunming_graduates" data-search-text="GFX_YUN_kunming_graduates" title="GFX_YUN_kunming_graduates" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_kunming_graduates.png" alt="GFX_YUN_kunming_graduates">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_Kuomintang" data-search-text="GFX_YUN_Kuomintang" title="GFX_YUN_Kuomintang" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_Kuomintang.png" alt="GFX_YUN_Kuomintang">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_landscape" data-search-text="GFX_YUN_landscape" title="GFX_YUN_landscape" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_landscape.png" alt="GFX_YUN_landscape">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_long_yun_march" data-search-text="GFX_YUN_long_yun_march" title="GFX_YUN_long_yun_march" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_long_yun_march.png" alt="GFX_YUN_long_yun_march">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_long_yun_portrait" data-search-text="GFX_YUN_long_yun_portrait" title="GFX_YUN_long_yun_portrait" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_long_yun_portrait.png" alt="GFX_YUN_long_yun_portrait">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_long_yun_shooting" data-search-text="GFX_YUN_long_yun_shooting" title="GFX_YUN_long_yun_shooting" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_long_yun_shooting.png" alt="GFX_YUN_long_yun_shooting">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_mining_stuff" data-search-text="GFX_YUN_mining_stuff" title="GFX_YUN_mining_stuff" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_mining.png" alt="GFX_YUN_mining_stuff">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_motorcycles" data-search-text="GFX_YUN_motorcycles" title="GFX_YUN_motorcycles" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_motorcycles.png" alt="GFX_YUN_motorcycles">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_old_dali" data-search-text="GFX_YUN_old_dali" title="GFX_YUN_old_dali" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_old_dali.png" alt="GFX_YUN_old_dali">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_outskirts" data-search-text="GFX_YUN_outskirts" title="GFX_YUN_outskirts" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_outskirts.png" alt="GFX_YUN_outskirts">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_paleonthology" data-search-text="GFX_YUN_paleonthology" title="GFX_YUN_paleonthology" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_paleonthology.png" alt="GFX_YUN_paleonthology">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_Parade" data-search-text="GFX_YUN_Parade" title="GFX_YUN_Parade" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_Parade.png" alt="GFX_YUN_Parade">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_peasants" data-search-text="GFX_YUN_peasants" title="GFX_YUN_peasants" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_peasants.png" alt="GFX_YUN_peasants">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_politicians" data-search-text="GFX_YUN_politicians" title="GFX_YUN_politicians" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_politicians.png" alt="GFX_YUN_politicians">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_tin_mining" data-search-text="GFX_YUN_tin_mining" title="GFX_YUN_tin_mining" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_tin_mining.png" alt="GFX_YUN_tin_mining">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_zhu_peide" data-search-text="GFX_YUN_zhu_peide" title="GFX_YUN_zhu_peide" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_zhu_peide.png" alt="GFX_YUN_zhu_peide">
+          </div>
+        
+          <div data-clipboard-text="GFX_YUN_zhu_peide_figure" data-search-text="GFX_YUN_zhu_peide_figure" title="GFX_YUN_zhu_peide_figure" class="icon">
+            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_zhu_peide_figure.png" alt="GFX_YUN_zhu_peide_figure">
+          </div>
+        </div>
+      </div>
+      <div id="newsEventsSection" class="docs-section">
+        <h6 class="docs-header">News Events (214)</h6>
+        <div class="icon-container flex flex-wrap justify-left mt-3">
+          <div data-clipboard-text="GFX_news_event_GER_wilhelm_dead" data-search-text="GFX_news_event_GER_wilhelm_dead" title="GFX_news_event_GER_wilhelm_dead" class="icon">
+            <img src="gfx/event_pictures/News Events/Europe/news_event_GER_wilhelm_dead.png" alt="GFX_news_event_GER_wilhelm_dead">
+          </div>
+        
+          <div data-clipboard-text="GFX_OTT_victory" data-search-text="GFX_OTT_victory" title="GFX_OTT_victory" class="icon">
+            <img src="gfx/event_pictures/News Events/Europe/OTT_Yeni_Mecmua_News.png" alt="GFX_OTT_victory">
+          </div>
+        
+          <div data-clipboard-text="GFX_USA_huey_dead" data-search-text="GFX_USA_huey_dead" title="GFX_USA_huey_dead" class="icon">
+            <img src="gfx/event_pictures/News Events/North America/USA_huey_dead.png" alt="GFX_USA_huey_dead">
+          </div>
+        
+          <div data-clipboard-text="GFX_USA_end_democracy_event" data-search-text="GFX_USA_end_democracy_event" title="GFX_USA_end_democracy_event" class="icon">
+            <img src="gfx/event_pictures/News Events/North America/news_event_USA_end_democracy.png" alt="GFX_USA_end_democracy_event">
+          </div>
+        
+          <div data-clipboard-text="GFX_USA_reed_dead" data-search-text="GFX_USA_reed_dead" title="GFX_USA_reed_dead" class="icon">
+            <img src="gfx/event_pictures/News Events/North America/USA_reed_dead.png" alt="GFX_USA_reed_dead">
+          </div>
+        
+          <div data-clipboard-text="GFX_USA_victory_celebration_news" data-search-text="GFX_USA_victory_celebration_news" title="GFX_USA_victory_celebration_news" class="icon">
+            <img src="gfx/event_pictures/News Events/North America/USA_victory_celebration_news.png" alt="GFX_USA_victory_celebration_news">
+          </div>
+        
+          <div data-clipboard-text="GFX_news_event_ITA_balbo" data-search-text="GFX_news_event_ITA_balbo" title="GFX_news_event_ITA_balbo" class="icon">
+            <img src="gfx/event_pictures/News Events/Europe/news_event_ITA_balbo.png" alt="GFX_news_event_ITA_balbo">
+          </div>
+        
+          <div data-clipboard-text="GFX_news_event_ITA_milan" data-search-text="GFX_news_event_ITA_milan" title="GFX_news_event_ITA_milan" class="icon">
+            <img src="gfx/event_pictures/News Events/Europe/news_event_ITA_milan.png" alt="GFX_news_event_ITA_milan">
+          </div>
+        
+          <div data-clipboard-text="GFX_news_event_ITA_big_crowd" data-search-text="GFX_news_event_ITA_big_crowd" title="GFX_news_event_ITA_big_crowd" class="icon">
+            <img src="gfx/event_pictures/News Events/Europe/news_event_ITA_big_crowd.png" alt="GFX_news_event_ITA_big_crowd">
+          </div>
+        
+          <div data-clipboard-text="GFX_news_event_ITA_kingdom" data-search-text="GFX_news_event_ITA_kingdom" title="GFX_news_event_ITA_kingdom" class="icon">
+            <img src="gfx/event_pictures/News Events/Europe/news_event_ITA_kingdom.png" alt="GFX_news_event_ITA_kingdom">
+          </div>
+        
+          <div data-clipboard-text="GFX_news_event_ITA_parliament" data-search-text="GFX_news_event_ITA_parliament" title="GFX_news_event_ITA_parliament" class="icon">
+            <img src="gfx/event_pictures/News Events/Europe/news_event_ITA_parliament.png" alt="GFX_news_event_ITA_parliament">
+          </div>
+        
           <div data-clipboard-text="GFX_news_event_BRA_worldcup" data-search-text="GFX_news_event_BRA_worldcup" title="GFX_news_event_BRA_worldcup" class="icon">
             <img src="gfx/event_pictures/News Events/South America/news_event_BRA_worldcup.png" alt="GFX_news_event_BRA_worldcup">
           </div>
@@ -13680,10 +13828,6 @@
         
           <div data-clipboard-text="GFX_news_event_PAP_red_pope" data-search-text="GFX_news_event_PAP_red_pope" title="GFX_news_event_PAP_red_pope" class="icon">
             <img src="gfx/event_pictures/News Events/Europe/news_event_PAP_red_pope.png" alt="GFX_news_event_PAP_red_pope">
-          </div>
-        
-          <div data-clipboard-text="GFX_USA_end_democracy_event" data-search-text="GFX_USA_end_democracy_event" title="GFX_USA_end_democracy_event" class="icon">
-            <img src="gfx/event_pictures/North America/United_States/news_event_USA_end_democracy.png" alt="GFX_USA_end_democracy_event">
           </div>
         
           <div data-clipboard-text="GFX_news_event_SAF_hertzog_wins" data-search-text="GFX_news_event_SAF_hertzog_wins" title="GFX_news_event_SAF_hertzog_wins" class="icon">
@@ -14020,138 +14164,6 @@
         
           <div data-clipboard-text="GFX_news_event_YUN_zhu_de_takes_over" data-search-text="GFX_news_event_YUN_zhu_de_takes_over" title="GFX_news_event_YUN_zhu_de_takes_over" class="icon">
             <img src="gfx/event_pictures/News Events/Asia/news_event_YUN_zhu_de_takes_over.png" alt="GFX_news_event_YUN_zhu_de_takes_over">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_army" data-search-text="GFX_YUN_army" title="GFX_YUN_army" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_army.png" alt="GFX_YUN_army">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_Army_marches_home" data-search-text="GFX_YUN_Army_marches_home" title="GFX_YUN_Army_marches_home" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_Army_marches_home.png" alt="GFX_YUN_Army_marches_home">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_Artillery" data-search-text="GFX_YUN_Artillery" title="GFX_YUN_Artillery" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_Artillery.png" alt="GFX_YUN_Artillery">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_artillery_fire" data-search-text="GFX_YUN_artillery_fire" title="GFX_YUN_artillery_fire" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_artillery_fire.png" alt="GFX_YUN_artillery_fire">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_artillery_man" data-search-text="GFX_YUN_artillery_man" title="GFX_YUN_artillery_man" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_artillery_man.png" alt="GFX_YUN_artillery_man">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_countryside" data-search-text="GFX_YUN_countryside" title="GFX_YUN_countryside" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_countryside.png" alt="GFX_YUN_countryside">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_gathering" data-search-text="GFX_YUN_gathering" title="GFX_YUN_gathering" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_gathering.png" alt="GFX_YUN_gathering">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_general_speech" data-search-text="GFX_YUN_general_speech" title="GFX_YUN_general_speech" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_general_speech.png" alt="GFX_YUN_general_speech">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_inspection" data-search-text="GFX_YUN_inspection" title="GFX_YUN_inspection" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_inspection.png" alt="GFX_YUN_inspection">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_intellectuals" data-search-text="GFX_YUN_intellectuals" title="GFX_YUN_intellectuals" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_intellectuals.png" alt="GFX_YUN_intellectuals">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_KMT" data-search-text="GFX_YUN_KMT" title="GFX_YUN_KMT" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_KMT.png" alt="GFX_YUN_KMT">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_KMT_Army" data-search-text="GFX_YUN_KMT_Army" title="GFX_YUN_KMT_Army" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_KMT_Army.png" alt="GFX_YUN_KMT_Army">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_KMT_march" data-search-text="GFX_YUN_KMT_march" title="GFX_YUN_KMT_march" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_KMT_march.png" alt="GFX_YUN_KMT_march">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_KMT_Parade" data-search-text="GFX_YUN_KMT_Parade" title="GFX_YUN_KMT_Parade" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_KMT_Parade.png" alt="GFX_YUN_KMT_Parade">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_KMT_soldier" data-search-text="GFX_YUN_KMT_soldier" title="GFX_YUN_KMT_soldier" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_KMT_soldier.png" alt="GFX_YUN_KMT_soldier">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_kunming_academy" data-search-text="GFX_YUN_kunming_academy" title="GFX_YUN_kunming_academy" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_kunming_academy.png" alt="GFX_YUN_kunming_academy">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_kunming_graduates" data-search-text="GFX_YUN_kunming_graduates" title="GFX_YUN_kunming_graduates" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_kunming_graduates.png" alt="GFX_YUN_kunming_graduates">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_Kuomintang" data-search-text="GFX_YUN_Kuomintang" title="GFX_YUN_Kuomintang" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_Kuomintang.png" alt="GFX_YUN_Kuomintang">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_landscape" data-search-text="GFX_YUN_landscape" title="GFX_YUN_landscape" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_landscape.png" alt="GFX_YUN_landscape">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_long_yun_march" data-search-text="GFX_YUN_long_yun_march" title="GFX_YUN_long_yun_march" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_long_yun_march.png" alt="GFX_YUN_long_yun_march">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_long_yun_portrait" data-search-text="GFX_YUN_long_yun_portrait" title="GFX_YUN_long_yun_portrait" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_long_yun_portrait.png" alt="GFX_YUN_long_yun_portrait">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_long_yun_shooting" data-search-text="GFX_YUN_long_yun_shooting" title="GFX_YUN_long_yun_shooting" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_long_yun_shooting.png" alt="GFX_YUN_long_yun_shooting">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_mining_stuff" data-search-text="GFX_YUN_mining_stuff" title="GFX_YUN_mining_stuff" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_mining.png" alt="GFX_YUN_mining_stuff">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_motorcycles" data-search-text="GFX_YUN_motorcycles" title="GFX_YUN_motorcycles" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_motorcycles.png" alt="GFX_YUN_motorcycles">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_old_dali" data-search-text="GFX_YUN_old_dali" title="GFX_YUN_old_dali" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_old_dali.png" alt="GFX_YUN_old_dali">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_outskirts" data-search-text="GFX_YUN_outskirts" title="GFX_YUN_outskirts" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_outskirts.png" alt="GFX_YUN_outskirts">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_paleonthology" data-search-text="GFX_YUN_paleonthology" title="GFX_YUN_paleonthology" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_paleonthology.png" alt="GFX_YUN_paleonthology">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_Parade" data-search-text="GFX_YUN_Parade" title="GFX_YUN_Parade" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_Parade.png" alt="GFX_YUN_Parade">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_peasants" data-search-text="GFX_YUN_peasants" title="GFX_YUN_peasants" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_peasants.png" alt="GFX_YUN_peasants">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_politicians" data-search-text="GFX_YUN_politicians" title="GFX_YUN_politicians" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_politicians.png" alt="GFX_YUN_politicians">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_tin_mining" data-search-text="GFX_YUN_tin_mining" title="GFX_YUN_tin_mining" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_tin_mining.png" alt="GFX_YUN_tin_mining">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_zhu_peide" data-search-text="GFX_YUN_zhu_peide" title="GFX_YUN_zhu_peide" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_zhu_peide.png" alt="GFX_YUN_zhu_peide">
-          </div>
-        
-          <div data-clipboard-text="GFX_YUN_zhu_peide_figure" data-search-text="GFX_YUN_zhu_peide_figure" title="GFX_YUN_zhu_peide_figure" class="icon">
-            <img src="gfx/event_pictures/East Asia/China/Yunnan/YUN_zhu_peide_figure.png" alt="GFX_YUN_zhu_peide_figure">
           </div>
         
           <div data-clipboard-text="americans_marching" data-search-text="americans_marching" title="americans_marching" class="icon">
@@ -14504,7 +14516,103 @@
         </div>
       </div>
       <div id="decisionsSection" class="docs-section">
-        <h6 class="docs-header">Decisions (77)</h6>
+        <h6 class="docs-header">Decisions (23)</h6>
+        <div class="icon-container flex flex-wrap justify-left mt-3">
+          <div data-clipboard-text="GFX_decision_generic_agreement" data-search-text="GFX_decision_generic_agreement" title="GFX_decision_generic_agreement" class="icon">
+            <img src="gfx/interface/decisions/decision_generic_agreement.png" alt="GFX_decision_generic_agreement">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_generic_flags" data-search-text="GFX_decision_generic_flags" title="GFX_decision_generic_flags" class="icon">
+            <img src="gfx/interface/decisions/decision_generic_flags.png" alt="GFX_decision_generic_flags">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_fortress" data-search-text="GFX_decision_fortress" title="GFX_decision_fortress" class="icon">
+            <img src="gfx/interface/decisions/decision_fortress.png" alt="GFX_decision_fortress">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_generic_naval_base" data-search-text="GFX_decision_generic_naval_base" title="GFX_decision_generic_naval_base" class="icon">
+            <img src="gfx/interface/decisions/decision_generic_naval_base.png" alt="GFX_decision_generic_naval_base">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_UFC" data-search-text="GFX_decision_UFC" title="GFX_decision_UFC" class="icon">
+            <img src="gfx/interface/decisions/decision_ufc.png" alt="GFX_decision_UFC">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_italy_flag" data-search-text="GFX_decision_italy_flag" title="GFX_decision_italy_flag" class="icon">
+            <img src="gfx/interface/decisions/decision_italy_flag.png" alt="GFX_decision_italy_flag">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_neosanfedisti" data-search-text="GFX_decision_neosanfedisti" title="GFX_decision_neosanfedisti" class="icon">
+            <img src="gfx/interface/decisions/decision_neosanfedisti.png" alt="GFX_decision_neosanfedisti">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_sardinia_flag" data-search-text="GFX_decision_sardinia_flag" title="GFX_decision_sardinia_flag" class="icon">
+            <img src="gfx/interface/decisions/decision_sardinia_flag.png" alt="GFX_decision_sardinia_flag">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_us_flag" data-search-text="GFX_decision_us_flag" title="GFX_decision_us_flag" class="icon">
+            <img src="gfx/interface/decisions/decision_us_flag.png" alt="GFX_decision_us_flag">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_cavalry" data-search-text="GFX_decision_cavalry" title="GFX_decision_cavalry" class="icon">
+            <img src="gfx/interface/decisions/decision_cavalry.png" alt="GFX_decision_cavalry">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_cod" data-search-text="GFX_decision_cod" title="GFX_decision_cod" class="icon">
+            <img src="gfx/interface/decisions/visje2.png" alt="GFX_decision_cod">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_inflation" data-search-text="GFX_decision_inflation" title="GFX_decision_inflation" class="icon">
+            <img src="gfx/interface/decisions/decision_inflation.png" alt="GFX_decision_inflation">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_radio" data-search-text="GFX_decision_radio" title="GFX_decision_radio" class="icon">
+            <img src="gfx/interface/decisions/decision_radio.png" alt="GFX_decision_radio">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_radar" data-search-text="GFX_decision_radar" title="GFX_decision_radar" class="icon">
+            <img src="gfx/interface/decisions/decision_radar.png" alt="GFX_decision_radar">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_AA_small" data-search-text="GFX_decision_AA_small" title="GFX_decision_AA_small" class="icon">
+            <img src="gfx/interface/decisions/decision_AA_small.png" alt="GFX_decision_AA_small">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_fengtian" data-search-text="GFX_decision_fengtian" title="GFX_decision_fengtian" class="icon">
+            <img src="gfx/interface/decisions/decision_fengtian.png" alt="GFX_decision_fengtian">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_electrify" data-search-text="GFX_decision_electrify" title="GFX_decision_electrify" class="icon">
+            <img src="gfx/interface/decisions/decision_electrify.png" alt="GFX_decision_electrify">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_soldierly_discipline" data-search-text="GFX_decision_soldierly_discipline" title="GFX_decision_soldierly_discipline" class="icon">
+            <img src="gfx/interface/decisions/decision_soldierly_discipline.png" alt="GFX_decision_soldierly_discipline">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_generic_motorized" data-search-text="GFX_decision_generic_motorized" title="GFX_decision_generic_motorized" class="icon">
+            <img src="gfx/interface/decisions/decision_generic_motorized.png" alt="GFX_decision_generic_motorized">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_generic_agriculture" data-search-text="GFX_decision_generic_agriculture" title="GFX_decision_generic_agriculture" class="icon">
+            <img src="gfx/interface/decisions/decision_generic_agriculture.png" alt="GFX_decision_generic_agriculture">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_generic_healthcare" data-search-text="GFX_decision_generic_healthcare" title="GFX_decision_generic_healthcare" class="icon">
+            <img src="gfx/interface/decisions/decision_generic_healthcare.png" alt="GFX_decision_generic_healthcare">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_chinese_flag" data-search-text="GFX_decision_chinese_flag" title="GFX_decision_chinese_flag" class="icon">
+            <img src="gfx/interface/decisions/decision_chinese_flag.png" alt="GFX_decision_chinese_flag">
+          </div>
+        
+          <div data-clipboard-text="GFX_decision_ban_iron_front" data-search-text="GFX_decision_ban_iron_front" title="GFX_decision_ban_iron_front" class="icon">
+            <img src="gfx/interface/decisions/decision_ban_iron_front.png" alt="GFX_decision_ban_iron_front">
+          </div>
+        </div>
+      </div>
+      <div id="decisionsCatSection" class="docs-section">
+        <h6 class="docs-header">Decision Category Icons (23)</h6>
         <div class="icon-container flex flex-wrap justify-left mt-3">
           <div data-clipboard-text="GFX_decision_cat_america" data-search-text="GFX_decision_cat_america" title="GFX_decision_cat_america" class="icon">
             <img src="gfx/interface/decisions/decision_cat_america.png" alt="GFX_decision_cat_america">
@@ -14597,7 +14705,11 @@
           <div data-clipboard-text="GFX_decision_category_iron_front" data-search-text="GFX_decision_category_iron_front" title="GFX_decision_category_iron_front" class="icon">
             <img src="gfx/interface/decisions/decision_category_iron_front.png" alt="GFX_decision_category_iron_front">
           </div>
-        
+        </div>
+      </div>
+      <div id="decisionsPicsSection" class="docs-section">
+        <h6 class="docs-header">Decision Category Pictures (31)</h6>
+        <div class="icon-container flex flex-wrap justify-left mt-3">
           <div data-clipboard-text="GFX_decision_cat_west_indies_congress" data-search-text="GFX_decision_cat_west_indies_congress" title="GFX_decision_cat_west_indies_congress" class="icon">
             <img src="gfx/interface/decisions/decision_cat_west_indies_congress.png" alt="GFX_decision_cat_west_indies_congress">
           </div>
@@ -14721,103 +14833,11 @@
           <div data-clipboard-text="GFX_decision_cat_picture_annexation" data-search-text="GFX_decision_cat_picture_annexation" title="GFX_decision_cat_picture_annexation" class="icon">
             <img src="gfx/interface/decisions/decision_cat_picture_annexation.png" alt="GFX_decision_cat_picture_annexation">
           </div>
-        
-          <div data-clipboard-text="GFX_decision_generic_agreement" data-search-text="GFX_decision_generic_agreement" title="GFX_decision_generic_agreement" class="icon">
-            <img src="gfx/interface/decisions/decision_generic_agreement.png" alt="GFX_decision_generic_agreement">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_generic_flags" data-search-text="GFX_decision_generic_flags" title="GFX_decision_generic_flags" class="icon">
-            <img src="gfx/interface/decisions/decision_generic_flags.png" alt="GFX_decision_generic_flags">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_fortress" data-search-text="GFX_decision_fortress" title="GFX_decision_fortress" class="icon">
-            <img src="gfx/interface/decisions/decision_fortress.png" alt="GFX_decision_fortress">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_generic_naval_base" data-search-text="GFX_decision_generic_naval_base" title="GFX_decision_generic_naval_base" class="icon">
-            <img src="gfx/interface/decisions/decision_generic_naval_base.png" alt="GFX_decision_generic_naval_base">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_UFC" data-search-text="GFX_decision_UFC" title="GFX_decision_UFC" class="icon">
-            <img src="gfx/interface/decisions/decision_ufc.png" alt="GFX_decision_UFC">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_italy_flag" data-search-text="GFX_decision_italy_flag" title="GFX_decision_italy_flag" class="icon">
-            <img src="gfx/interface/decisions/decision_italy_flag.png" alt="GFX_decision_italy_flag">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_neosanfedisti" data-search-text="GFX_decision_neosanfedisti" title="GFX_decision_neosanfedisti" class="icon">
-            <img src="gfx/interface/decisions/decision_neosanfedisti.png" alt="GFX_decision_neosanfedisti">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_sardinia_flag" data-search-text="GFX_decision_sardinia_flag" title="GFX_decision_sardinia_flag" class="icon">
-            <img src="gfx/interface/decisions/decision_sardinia_flag.png" alt="GFX_decision_sardinia_flag">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_us_flag" data-search-text="GFX_decision_us_flag" title="GFX_decision_us_flag" class="icon">
-            <img src="gfx/interface/decisions/decision_us_flag.png" alt="GFX_decision_us_flag">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_cavalry" data-search-text="GFX_decision_cavalry" title="GFX_decision_cavalry" class="icon">
-            <img src="gfx/interface/decisions/decision_cavalry.png" alt="GFX_decision_cavalry">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_cod" data-search-text="GFX_decision_cod" title="GFX_decision_cod" class="icon">
-            <img src="gfx/interface/decisions/visje2.png" alt="GFX_decision_cod">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_inflation" data-search-text="GFX_decision_inflation" title="GFX_decision_inflation" class="icon">
-            <img src="gfx/interface/decisions/decision_inflation.png" alt="GFX_decision_inflation">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_radio" data-search-text="GFX_decision_radio" title="GFX_decision_radio" class="icon">
-            <img src="gfx/interface/decisions/decision_radio.png" alt="GFX_decision_radio">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_radar" data-search-text="GFX_decision_radar" title="GFX_decision_radar" class="icon">
-            <img src="gfx/interface/decisions/decision_radar.png" alt="GFX_decision_radar">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_AA_small" data-search-text="GFX_decision_AA_small" title="GFX_decision_AA_small" class="icon">
-            <img src="gfx/interface/decisions/decision_AA_small.png" alt="GFX_decision_AA_small">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_fengtian" data-search-text="GFX_decision_fengtian" title="GFX_decision_fengtian" class="icon">
-            <img src="gfx/interface/decisions/decision_fengtian.png" alt="GFX_decision_fengtian">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_electrify" data-search-text="GFX_decision_electrify" title="GFX_decision_electrify" class="icon">
-            <img src="gfx/interface/decisions/decision_electrify.png" alt="GFX_decision_electrify">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_soldierly_discipline" data-search-text="GFX_decision_soldierly_discipline" title="GFX_decision_soldierly_discipline" class="icon">
-            <img src="gfx/interface/decisions/decision_soldierly_discipline.png" alt="GFX_decision_soldierly_discipline">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_generic_motorized" data-search-text="GFX_decision_generic_motorized" title="GFX_decision_generic_motorized" class="icon">
-            <img src="gfx/interface/decisions/decision_generic_motorized.png" alt="GFX_decision_generic_motorized">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_generic_agriculture" data-search-text="GFX_decision_generic_agriculture" title="GFX_decision_generic_agriculture" class="icon">
-            <img src="gfx/interface/decisions/decision_generic_agriculture.png" alt="GFX_decision_generic_agriculture">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_generic_healthcare" data-search-text="GFX_decision_generic_healthcare" title="GFX_decision_generic_healthcare" class="icon">
-            <img src="gfx/interface/decisions/decision_generic_healthcare.png" alt="GFX_decision_generic_healthcare">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_chinese_flag" data-search-text="GFX_decision_chinese_flag" title="GFX_decision_chinese_flag" class="icon">
-            <img src="gfx/interface/decisions/decision_chinese_flag.png" alt="GFX_decision_chinese_flag">
-          </div>
-        
-          <div data-clipboard-text="GFX_decision_ban_iron_front" data-search-text="GFX_decision_ban_iron_front" title="GFX_decision_ban_iron_front" class="icon">
-            <img src="gfx/interface/decisions/decision_ban_iron_front.png" alt="GFX_decision_ban_iron_front">
-          </div>
         </div>
       </div>
     </div>
     <footer>
-      <p>Made with ❤️ by <a href="https://github.com/Yard1">Yard1</a> with help from <a href="http://getskeleton.com/">Skeleton CSS</a>, <a href="https://feathericons.com/">Feather</a>, <a href="https://clipboardjs.com/">ClipboardJS</a> and <a href="https://www.w3schools.com/">W3Schools</a><br \>Last updated: 2020-04-22 13:40:53.361071 UTC</p>
+      <p>Made with ❤️ by <a href="https://github.com/Yard1">Yard1</a> with help from <a href="http://getskeleton.com/">Skeleton CSS</a>, <a href="https://feathericons.com/">Feather</a>, <a href="https://clipboardjs.com/">ClipboardJS</a> and <a href="https://www.w3schools.com/">W3Schools</a><br \>Last updated: 2020-04-23 12:03:38.009151 UTC</p>
     </footer>
   </div>
 </body>
@@ -14859,8 +14879,17 @@
       case 'events-toggle':
         elementToHide = document.getElementById('eventsSection');
         break;
+      case 'news-events-toggle':
+        elementToHide = document.getElementById('newsEventsSection');
+        break;
       case 'decisions-toggle':
         elementToHide = document.getElementById('decisionsSection');
+        break;
+      case 'decisions-cat-toggle':
+        elementToHide = document.getElementById('decisionsCatSection');
+        break;
+      case 'decisions-pics-toggle':
+        elementToHide = document.getElementById('decisionsPicsSection');
         break;
       default:
         return;
