@@ -14,14 +14,18 @@ from wand.api import library
 def convert_images(paths, updated_images=None):
     bad_files = []
     for x in paths:
-        for path in x:
+        for path, value in x.items():
+            frames = value[0][1]
             if os.path.exists(path):
                 if updated_images and not path in updated_images:
                     continue
                 fname = os.path.splitext(path)[0]
                 try:
                     with image.Image(filename=path) as img:
-                        library.MagickSetCompressionQuality(img.wand, 95)
+                        if frames > 1:
+                            print("%s has %d frames, cropping..." % (fname, frames))
+                            img.crop(0, 0, width=img.width // frames, height=img.height)
+                        library.MagickSetCompressionQuality(img.wand, 00)
                         print("Saving %s..." % (fname + '.png'))
                         img.save(filename=fname + '.png')
                 except:
@@ -41,27 +45,34 @@ def read_gfx(gfx_paths):
         path = os.path.join(path)
         with open(path, 'r') as f:
             lines = f.readlines()
+        spriteType = False
         name = ''
         texturefile = ''
+        noOfFrames = 1
         for line in lines:
             line = re.sub(r'#.*', '', line)
+            spriteType = re.match(r'\s*name\s*=\s*"(.+?)"\s*$', line)
+            if spriteType and name and texturefile:
+                gfx[name] = texturefile
+                gfx_files[os.path.normpath(texturefile)].append((name, noOfFrames))
+                spriteType = False
+                name = ''
+                texturefile = ''
+                noOfFrames = 1
             match = re.match(r'\s*name\s*=\s*"(.+?)"\s*$', line)
             if match:
                 name = match.group(1)
-                continue
-            if name:
-                match = re.match(r'\s*texturefile\s*=\s*"(.+?)"\s*$', line)
-                if match:
-                    texturefile = match.group(1)
-            if texturefile:
-                gfx[name] = texturefile
-                gfx_files[os.path.normpath(texturefile)].append(name)
-                name = ''
-                texturefile = ''
+            match = re.match(r'\s*texturefile\s*=\s*"(.+?)"\s*$', line)
+            if match:
+                texturefile = match.group(1)
+            match = re.match(r'\s*noOfFrames\s*=\s*([0-9]+?)\s*$', line)
+            if match:
+                noOfFrames = int(match.group(1))
+
     return (gfx, gfx_files)
 
 
-def generate_html(goals, ideas, texticons, events, news_events, decisions, decisions_cat, decisions_pics, title, favicon):
+def generate_html(goals, ideas, texticons, events, news_events, agencies, decisions, decisions_cat, decisions_pics, title, favicon):
     with open(os.path.join('.github-pages', 'index.template'), 'r') as f:
         html = f.read()
 
@@ -145,6 +156,22 @@ def generate_html(goals, ideas, texticons, events, news_events, decisions, decis
     html = html.replace('@NEWSEVENTS_ICONS', ''.join(news_events_entries))
     html = html.replace('@NEWSEVENTS_NUM', str(news_events_num))
 
+    agencies_entries = []
+    agencies_num = 0
+
+    for agency, path in agencies.items():
+        img_src = os.path.splitext(path)[0] + '.png'
+        if os.path.exists(img_src):
+            agencies_num += 1
+            agencies_entries.append('''
+          <div data-clipboard-text="%s" data-search-text="%s" title="%s" class="icon">
+            <img src="%s" alt="%s">
+          </div>
+        ''' % (agency, agency, agency, img_src, agency))
+
+    html = html.replace('@AGENCIES_ICONS', ''.join(agencies_entries))
+    html = html.replace('@AGENCIES_NUM', str(agencies_num))
+
     decisions_entries = []
     decisions_num = 0
 
@@ -213,12 +240,13 @@ def main():
     texticons, texticons_files = read_gfx(args.texticons)
     events, events_files = read_gfx(args.events)
     news_events, news_events_files = read_gfx(args.news_events)
+    agencies, agencies_files = read_gfx(args.agencies)
     decisions, decisions_files = read_gfx(args.decisions)
     decisions_cat, decisions_cat_files = read_gfx(args.decisions_cat)
     decisions_pics, decisions_pics_files = read_gfx(args.decisions_pics)
-    bad_files = convert_images([goals_files.keys(), ideas_files.keys(), texticons_files.keys(), events_files.keys(), news_events_files.keys(), decisions_files.keys(), decisions_cat_files.keys(), decisions_pics_files.keys()],
+    bad_files = convert_images([goals_files, ideas_files, texticons_files, events_files, news_events_files, agencies_files, decisions_files, decisions_cat_files, decisions_pics_files],
                    args.modified_images)
-    generate_html(goals, ideas, texticons, events, news_events, decisions, decisions_cat, decisions_pics, args.title, args.favicon)
+    generate_html(goals, ideas, texticons, events, news_events, agencies, decisions, decisions_cat, decisions_pics, args.title, args.favicon)
     print("The following files had exceptions:")
     for f in bad_files:
         print(f[0])
@@ -230,21 +258,23 @@ def setup_cli_arguments():
     parser = argparse.ArgumentParser(
         description='')
     parser.add_argument('--goals', nargs='*',
-                        help='Paths to goals (national focus) interface gfx files', required=True)
+                        help='Paths to goals (national focus) interface gfx files', required=False)
     parser.add_argument('--ideas', nargs='*',
-                        help='Paths to ideas interface gfx files', required=True)
+                        help='Paths to ideas interface gfx files', required=False)
     parser.add_argument('--texticons', nargs='*',
-                        help='Paths to texticons interface gfx files', required=True)
+                        help='Paths to texticons interface gfx files', required=False)
     parser.add_argument('--events', nargs='*',
-                        help='Paths to events interface gfx files', required=True)
+                        help='Paths to events interface gfx files', required=False)
     parser.add_argument('--news-events', nargs='*', dest="news_events",
-                        help='Paths to news events interface gfx files', required=True)
+                        help='Paths to news events interface gfx files', required=False)
+    parser.add_argument('--agencies', nargs='*',
+                        help='Paths to agencies interface gfx files', required=False)
     parser.add_argument('--decisions', nargs='*',
-                        help='Paths to decisions interface gfx files', required=True)
+                        help='Paths to decisions interface gfx files', required=False)
     parser.add_argument('--decisions-cat', nargs='*', dest="decisions_cat",
-                        help='Paths to decisions category interface gfx files', required=True)
+                        help='Paths to decisions category interface gfx files', required=False)
     parser.add_argument('--decisions-pics', nargs='*', dest="decisions_pics",
-                        help='Paths to decision category picture interface gfx files', required=True)
+                        help='Paths to decision category picture interface gfx files', required=False)
     parser.add_argument('--title',
                         help='Webpage title', required=True)
     parser.add_argument('--favicon',
@@ -258,6 +288,7 @@ def setup_cli_arguments():
     args.texticons = [os.path.normpath(x) for x in args.texticons] if args.texticons else []
     args.events = [os.path.normpath(x) for x in args.events] if args.events else []
     args.news_events = [os.path.normpath(x) for x in args.news_events] if args.news_events else []
+    args.agencies = [os.path.normpath(x) for x in args.agencies] if args.agencies else []
     args.decisions = [os.path.normpath(x) for x in args.decisions] if args.decisions else []
     args.decisions_cat = [os.path.normpath(x) for x in args.decisions_cat] if args.decisions_cat else []
     args.decisions_pics = [os.path.normpath(x) for x in args.decisions_pics] if args.decisions_pics else []

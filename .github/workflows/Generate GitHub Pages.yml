@@ -20,6 +20,8 @@ on:
     - 'gfx/interface/ideas/**/*.dds'
     - 'gfx/interface/goals/**/*.tga'
     - 'gfx/interface/ideas/**/*.tga'
+    - 'gfx/interface/operatives/agencies/**/*.dds'
+    - 'gfx/interface/operatives/agencies/**/*.tga'
     - 'interface/**/*.gfx'
   repository_dispatch:
 
@@ -65,7 +67,7 @@ jobs:
         cp -rf $GITHUB_WORKSPACE/gfx/interface/decisions $GITHUB_WORKSPACE/gh-pages/gfx/interface
         cp -rf $GITHUB_WORKSPACE/interface $GITHUB_WORKSPACE/gh-pages
         cd $GITHUB_WORKSPACE/gh-pages
-        python .github-pages/hoi4_icon_search_gen.py --goals "./interface/KR_goals.gfx" --ideas "./interface/KR_ideas.gfx" "./interface/KR_ideas_africa.gfx" "./interface/KR_ideas_americas.gfx" "./interface/KR_ideas_asia.gfx" "./interface/KR_ideas_europe.gfx" --texticons "./interface/KR_texticons.gfx" --events "./interface/KR_event_pictures.gfx" --news-events "./interface/KR_event_news_pictures.gfx" --decisions "./interface/KR_decisions.gfx" --decisions-cat "./interface/KR_decisions_categories.gfx" --decisions-pics "./interface/KR_decisions_categories_pictures.gfx" --title "Kaiserreich GFX Search" --favicon "./kr_icon.png" --modified-images $MODIFIED_FILES
+        python .github-pages/hoi4_icon_search_gen.py --goals "./interface/KR_goals.gfx" --ideas "./interface/KR_ideas.gfx" "./interface/KR_ideas_africa.gfx" "./interface/KR_ideas_americas.gfx" "./interface/KR_ideas_asia.gfx" "./interface/KR_ideas_europe.gfx" --texticons "./interface/KR_texticons.gfx" --events "./interface/KR_event_pictures.gfx" --news-events "./interface/KR_event_news_pictures.gfx" --agencies "./interface/KR_countryintelligenceagencyview.gfx"  --decisions "./interface/KR_decisions.gfx" --decisions-cat "./interface/KR_decisions_categories.gfx" --decisions-pics "./interface/KR_decisions_categories_pictures.gfx" --title "Kaiserreich GFX Search" --favicon "./kr_icon.png" --modified-images $MODIFIED_FILES
     - name: Commit and push files
       run: |
         cd $GITHUB_WORKSPACE/gh-pages

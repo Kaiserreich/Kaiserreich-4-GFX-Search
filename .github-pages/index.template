@@ -287,6 +287,10 @@
           <span class="button toggle-button-span">News Events</span>
         </label>
         <label class="toggle-button">
+          <input id="agencies-toggle" type="checkbox" onclick="toggleIcons('agencies-toggle')" checked>
+          <span class="button toggle-button-span">Agencies</span>
+        </label>
+        <label class="toggle-button">
           <input id="decisions-toggle" type="checkbox" onclick="toggleIcons('decisions-toggle')" checked>
           <span class="button toggle-button-span">Decisions</span>
         </label>
@@ -318,6 +322,10 @@
       <div id="newsEventsSection" class="docs-section">
         <h6 class="docs-header">News Events (@NEWSEVENTS_NUM)</h6>
         <div class="icon-container flex flex-wrap justify-left mt-3">@NEWSEVENTS_ICONS</div>
+      </div>
+      <div id="agenciesSection" class="docs-section">
+        <h6 class="docs-header">Agencies (@AGENCIES_NUM)</h6>
+        <div class="icon-container flex flex-wrap justify-left mt-3">@AGENCIES_ICONS</div>
       </div>
       <div id="decisionsSection" class="docs-section">
         <h6 class="docs-header">Decisions (@DECISIONS_NUM)</h6>
@@ -377,6 +385,9 @@
         break;
       case 'news-events-toggle':
         elementToHide = document.getElementById('newsEventsSection');
+        break;
+      case 'agencies-toggle':
+        elementToHide = document.getElementById('agenciesSection');
         break;
       case 'decisions-toggle':
         elementToHide = document.getElementById('decisionsSection');
