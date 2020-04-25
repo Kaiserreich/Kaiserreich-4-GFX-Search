@@ -98,7 +98,7 @@ def generate_html(goals, ideas, texticons, events, news_events, agencies, decisi
     for idea, path in ideas.items():
         img_src = os.path.splitext(path)[0] + '.png'
         if os.path.exists(img_src):
-            idea_cut = idea.replace("GFX_idea", "")
+            idea_cut = idea.replace("GFX_idea_", "")
             ideas_num += 1
             idea_entries.append('''
           <div data-clipboard-text="%s" data-search-text="%s" title="%s" class="icon">
