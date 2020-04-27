@@ -131,10 +131,30 @@ def generate_html(goals, ideas, texticons, events, news_events, agencies, decisi
     html = html.replace('@EVENTS_ICONS', ''.join(events_entries))
     html = html.replace('@EVENTS_NUM', str(events_num))
 
+    news_events_entries, news_events_num = generate_icons_section(news_events, path_dicts)
+
+    html = html.replace('@NEWSEVENTS_ICONS', ''.join(news_events_entries))
+    html = html.replace('@NEWSEVENTS_NUM', str(news_events_num))
+
+    agencies_entries, agencies_num = generate_icons_section(agencies, path_dicts)
+
+    html = html.replace('@AGENCIES_ICONS', ''.join(agencies_entries))
+    html = html.replace('@AGENCIES_NUM', str(agencies_num))
+
     decisions_entries, decisions_num = generate_icons_section(decisions, path_dicts)
 
     html = html.replace('@DECISIONS_ICONS', ''.join(decisions_entries))
     html = html.replace('@DECISIONS_NUM', str(decisions_num))
+
+    decisions_cat_entries, decisions_cat_num = generate_icons_section(decisions_cat, path_dicts)
+
+    html = html.replace('@DECISIONSCAT_ICONS', ''.join(decisions_cat_entries))
+    html = html.replace('@DECISIONSCAT_NUM', str(decisions_cat_num))
+
+    decisions_pics_entries, decisions_pics_num = generate_icons_section(decisions_pics, path_dicts)
+
+    html = html.replace('@DECISIONSPICS_ICONS', ''.join(decisions_pics_entries))
+    html = html.replace('@DECISIONSPICS_NUM', str(decisions_pics_num))
 
     html = html.replace('@TITLE', title)
     favicon = favicon if favicon else ""
@@ -169,8 +189,6 @@ def main():
     for f in BAD_FILES:
         print(f[0])
         print(f[1])
-
-
 
 def setup_cli_arguments():
     parser = argparse.ArgumentParser(
@@ -223,5 +241,3 @@ def setup_cli_arguments():
 
 if __name__ == "__main__":
     main()
-
-    
