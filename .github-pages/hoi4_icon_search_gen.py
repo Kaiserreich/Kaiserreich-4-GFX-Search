@@ -131,30 +131,10 @@ def generate_html(goals, ideas, texticons, events, news_events, agencies, decisi
     html = html.replace('@EVENTS_ICONS', ''.join(events_entries))
     html = html.replace('@EVENTS_NUM', str(events_num))
 
-    news_events_entries, news_events_num = generate_icons_section(news_events, path_dicts)
-
-    html = html.replace('@NEWSEVENTS_ICONS', ''.join(news_events_entries))
-    html = html.replace('@NEWSEVENTS_NUM', str(news_events_num))
-
-    agencies_entries, agencies_num = generate_icons_section(agencies, path_dicts)
-
-    html = html.replace('@AGENCIES_ICONS', ''.join(agencies_entries))
-    html = html.replace('@AGENCIES_NUM', str(agencies_num))
-
     decisions_entries, decisions_num = generate_icons_section(decisions, path_dicts)
 
     html = html.replace('@DECISIONS_ICONS', ''.join(decisions_entries))
     html = html.replace('@DECISIONS_NUM', str(decisions_num))
-
-    decisions_cat_entries, decisions_cat_num = generate_icons_section(decisions_cat, path_dicts)
-
-    html = html.replace('@DECISIONSCAT_ICONS', ''.join(decisions_cat_entries))
-    html = html.replace('@DECISIONSCAT_NUM', str(decisions_cat_num))
-
-    decisions_pics_entries, decisions_pics_num = generate_icons_section(decisions_pics, path_dicts)
-
-    html = html.replace('@DECISIONSPICS_ICONS', ''.join(decisions_pics_entries))
-    html = html.replace('@DECISIONSPICS_NUM', str(decisions_pics_num))
 
     html = html.replace('@TITLE', title)
     favicon = favicon if favicon else ""
@@ -219,6 +199,8 @@ def setup_cli_arguments():
                         help='Path to webpage favicon', required=False)
     parser.add_argument('--modified-images', nargs='*',
                         help='Paths to modified image files (If not set, will convert all images)', dest="modified_images", required=False)
+    parser.add_argument('--modified-images-str',
+                        help='Paths to modified image files (If not set, will convert all images)', dest="modified_images_str", required=False)
 
     args = parser.parse_args()
     args.goals = [os.path.normpath(x) for x in args.goals] if args.goals else []
@@ -230,6 +212,9 @@ def setup_cli_arguments():
     args.decisions = [os.path.normpath(x) for x in args.decisions] if args.decisions else []
     args.decisions_cat = [os.path.normpath(x) for x in args.decisions_cat] if args.decisions_cat else []
     args.decisions_pics = [os.path.normpath(x) for x in args.decisions_pics] if args.decisions_pics else []
+    if args.modified_images_str:
+        args.modified_images_str = [x.replace("'", "") for x in re.findall(r"'[^']+'", args.modified_images_str)]
+        args.modified_images = args.modified_images_str
     if args.modified_images:
         args.modified_images = [os.path.normpath(
             x) for x in args.modified_images]
