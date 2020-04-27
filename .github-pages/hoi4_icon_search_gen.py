@@ -76,7 +76,7 @@ def read_gfx(gfx_paths):
 
     return (gfx, gfx_files)
 
-def generate_icons_section(icons_dict, remove_str = None):
+def generate_icons_section(icons_dict, path_dicts, remove_str = None):
     global BAD_FILES
     icon_entries = []
     icons_num = 0
@@ -85,7 +85,12 @@ def generate_icons_section(icons_dict, remove_str = None):
         img_src = os.path.splitext(path)[0] + '.png'
         if not os.path.exists(img_src):
             try:
-                convert_image(path[0], path[1])
+                frames = 1
+                for path_dict in path_dicts: #hacky solution for now
+                    if path in path_dict:
+                        frames = path_dict[path][0][1]
+                        break
+                convert_image(path, frames)
             except:
                 print("EXCEPTION with %s" % path)
                 ex_message = traceback.format_exc()
@@ -102,51 +107,51 @@ def generate_icons_section(icons_dict, remove_str = None):
         ''' % (icon, icon, icon, img_src, icon))
     return (icon_entries, icons_num)
 
-def generate_html(goals, ideas, texticons, events, news_events, agencies, decisions, decisions_cat, decisions_pics, title, favicon):
+def generate_html(goals, ideas, texticons, events, news_events, agencies, decisions, decisions_cat, decisions_pics, path_dicts, title, favicon):
     with open(os.path.join('.github-pages', 'index.template'), 'r') as f:
         html = f.read()
 
-    goal_entries, goals_num = generate_icons_section(goals)
+    goal_entries, goals_num = generate_icons_section(goals, path_dicts)
 
     html = html.replace('@GOALS_ICONS', ''.join(goal_entries))
     html = html.replace('@GOALS_NUM', str(goals_num))
 
-    idea_entries, ideas_num = generate_icons_section(ideas, "GFX_idea_")
+    idea_entries, ideas_num = generate_icons_section(ideas, path_dicts, "GFX_idea_")
 
     html = html.replace('@IDEAS_ICONS', ''.join(idea_entries))
     html = html.replace('@IDEAS_NUM', str(ideas_num))
 
-    texticons_entries, texticons_num = generate_icons_section(texticons)
+    texticons_entries, texticons_num = generate_icons_section(texticons, path_dicts)
 
     html = html.replace('@TEXTICONS_ICONS', ''.join(texticons_entries))
     html = html.replace('@TEXTICONS_NUM', str(texticons_num))
 
-    events_entries, events_num = generate_icons_section(events)
+    events_entries, events_num = generate_icons_section(events, path_dicts)
 
     html = html.replace('@EVENTS_ICONS', ''.join(events_entries))
     html = html.replace('@EVENTS_NUM', str(events_num))
 
-    news_events_entries, news_events_num = generate_icons_section(news_events)
+    news_events_entries, news_events_num = generate_icons_section(news_events, path_dicts)
 
     html = html.replace('@NEWSEVENTS_ICONS', ''.join(news_events_entries))
     html = html.replace('@NEWSEVENTS_NUM', str(news_events_num))
 
-    agencies_entries, agencies_num = generate_icons_section(agencies)
+    agencies_entries, agencies_num = generate_icons_section(agencies, path_dicts)
 
     html = html.replace('@AGENCIES_ICONS', ''.join(agencies_entries))
     html = html.replace('@AGENCIES_NUM', str(agencies_num))
 
-    decisions_entries, decisions_num = generate_icons_section(decisions)
+    decisions_entries, decisions_num = generate_icons_section(decisions, path_dicts)
 
     html = html.replace('@DECISIONS_ICONS', ''.join(decisions_entries))
     html = html.replace('@DECISIONS_NUM', str(decisions_num))
 
-    decisions_cat_entries, decisions_cat_num = generate_icons_section(decisions_cat)
+    decisions_cat_entries, decisions_cat_num = generate_icons_section(decisions_cat, path_dicts)
 
     html = html.replace('@DECISIONSCAT_ICONS', ''.join(decisions_cat_entries))
     html = html.replace('@DECISIONSCAT_NUM', str(decisions_cat_num))
 
-    decisions_pics_entries, decisions_pics_num = generate_icons_section(decisions_pics)
+    decisions_pics_entries, decisions_pics_num = generate_icons_section(decisions_pics, path_dicts)
 
     html = html.replace('@DECISIONSPICS_ICONS', ''.join(decisions_pics_entries))
     html = html.replace('@DECISIONSPICS_NUM', str(decisions_pics_num))
@@ -176,9 +181,10 @@ def main():
     decisions, decisions_files = read_gfx(args.decisions)
     decisions_cat, decisions_cat_files = read_gfx(args.decisions_cat)
     decisions_pics, decisions_pics_files = read_gfx(args.decisions_pics)
-    convert_images([goals_files, ideas_files, texticons_files, events_files, news_events_files, agencies_files, decisions_files, decisions_cat_files, decisions_pics_files],
+    path_dicts = [goals_files, ideas_files, texticons_files, events_files, news_events_files, agencies_files, decisions_files, decisions_cat_files, decisions_pics_files]
+    convert_images(path_dicts,
                    args.modified_images)
-    generate_html(goals, ideas, texticons, events, news_events, agencies, decisions, decisions_cat, decisions_pics, args.title, args.favicon)
+    generate_html(goals, ideas, texticons, events, news_events, agencies, decisions, decisions_cat, decisions_pics, path_dicts, args.title, args.favicon)
     print("The following files had exceptions:")
     for f in BAD_FILES:
         print(f[0])
