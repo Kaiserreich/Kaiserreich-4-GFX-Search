@@ -10,10 +10,10 @@ from collections import defaultdict
 from wand import image  # also requires apt-get install libmagickwand-dev
 from wand.api import library
 
-global BAD_FILES = []
+BAD_FILES = []
 
 def convert_images(paths, updated_images=None):
-    bad_files = []
+    global BAD_FILES
     for x in paths:
         for path, value in x.items():
             frames = value[0][1]
@@ -77,6 +77,7 @@ def read_gfx(gfx_paths):
     return (gfx, gfx_files)
 
 def generate_icons_section(icons_dict, remove_str = None):
+    global BAD_FILES
     icon_entries = []
     icons_num = 0
 
@@ -91,7 +92,7 @@ def generate_icons_section(icons_dict, remove_str = None):
                 BAD_FILES.append((path, ex_message))
                 print(ex_message)
         if os.path.exists(img_src):
-            if replace_str:
+            if remove_str:
                 icon = icon.replace(remove_str, "")
             icons_num += 1
             icon_entries.append('''
@@ -132,6 +133,9 @@ def generate_html(goals, ideas, texticons, events, news_events, agencies, decisi
 
     agencies_entries, agencies_num = generate_icons_section(agencies)
 
+    html = html.replace('@AGENCIES_ICONS', ''.join(agencies_entries))
+    html = html.replace('@AGENCIES_NUM', str(agencies_num))
+
     decisions_entries, decisions_num = generate_icons_section(decisions)
 
     html = html.replace('@DECISIONS_ICONS', ''.join(decisions_entries))
@@ -157,6 +161,7 @@ def generate_html(goals, ideas, texticons, events, news_events, agencies, decisi
 
 
 def main():
+    global BAD_FILES
     print("Starting hoi4_icon_search_gen...")
     args = setup_cli_arguments()
     if args.modified_images:
