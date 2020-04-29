@@ -14097,7 +14097,7 @@
       </div>
     </div>
     <footer>
-      <p>Made with ❤️ by <a href="https://github.com/Yard1">Yard1</a> with help from <a href="http://getskeleton.com/">Skeleton CSS</a>, <a href="https://feathericons.com/">Feather</a>, <a href="https://clipboardjs.com/">ClipboardJS</a> and <a href="https://www.w3schools.com/">W3Schools</a><br \>Last updated: 2020-04-29 19:13:38.564469 UTC</p>
+      <p>Made with ❤️ by <a href="https://github.com/Yard1">Yard1</a> with help from <a href="http://getskeleton.com/">Skeleton CSS</a>, <a href="https://feathericons.com/">Feather</a>, <a href="https://clipboardjs.com/">ClipboardJS</a> and <a href="https://www.w3schools.com/">W3Schools</a><br \>Last updated: 2020-04-29 19:26:38.495589 UTC</p>
     </footer>
   </div>
 </body>
@@ -14124,6 +14124,7 @@
   }
 
   function toggleIcons(id) {
+    var checkBox = document.getElementById(id + '-toggle');
     var elementToHide = document.getElementById(id);
 
     if (checkBox.checked == true) {
@@ -14159,14 +14160,14 @@
     return actionMsg;
   }
   function hideEmptySections() {
-    var sections = document.getElementsByClassName('docs-section');
+    var containers = document.getElementsByClassName('icon-container');
     var index, len, button;
-    for (index = 0, len = sections.length; index < len; ++index) {
-        if (sections[index].children.length < 3) {
-          button = document.getElementById(sections[index].id + '-toggle');
+    for (index = 0, len = containers.length; index < len; ++index) {
+        if (containers[index].children.length < 1) {
+          button = document.getElementById(containers[index].parentElement.id + '-toggle');
           button.checked = false;
           button.parentElement.style.display = "none";
-          sections[index].style.display = "none";
+          containers[index].parentElement.style.display = "none";
         }
     }
   }
