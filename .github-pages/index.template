@@ -368,6 +368,7 @@
   }
 
   function toggleIcons(id) {
+    var checkBox = document.getElementById(id + '-toggle');
     var elementToHide = document.getElementById(id);
 
     if (checkBox.checked == true) {
@@ -403,14 +404,14 @@
     return actionMsg;
   }
   function hideEmptySections() {
-    var sections = document.getElementsByClassName('docs-section');
+    var containers = document.getElementsByClassName('icon-container');
     var index, len, button;
-    for (index = 0, len = sections.length; index < len; ++index) {
-        if (sections[index].children.length < 3) {
-          button = document.getElementById(sections[index].id + '-toggle');
+    for (index = 0, len = containers.length; index < len; ++index) {
+        if (containers[index].children.length < 1) {
+          button = document.getElementById(containers[index].parentElement.id + '-toggle');
           button.checked = false;
           button.parentElement.style.display = "none";
-          sections[index].style.display = "none";
+          containers[index].parentElement.style.display = "none";
         }
     }
   }

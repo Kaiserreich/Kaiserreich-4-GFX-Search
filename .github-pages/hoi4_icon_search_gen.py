@@ -69,7 +69,6 @@ def read_gfx(gfx_paths):
             name = ''
             texturefile = ''
             noOfFrames = 1
-            print(spriteType)
             match = re.search(r'\s+name\s*=\s*\"(.+?)\"', spriteType, re.IGNORECASE)
             if match:
                 name = match.group(1)
