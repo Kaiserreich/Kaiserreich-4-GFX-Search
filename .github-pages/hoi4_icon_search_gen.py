@@ -16,7 +16,7 @@ def convert_images(paths, updated_images=None):
     global BAD_FILES
     for x in paths:
         for path, value in x.items():
-            frames = value[0][1]
+            frames = value[0].frames
             if updated_images and not path in updated_images:
                 continue
             try:
@@ -43,36 +43,46 @@ def convert_image(path, frames):
         print("%s does not exist!" % path)
         return None
 
+class SpriteType:
+    def __init__(self, name, texturefile, frames):
+        self.name = name
+        self.texturefile = texturefile
+        self.frames = frames
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
+
 def read_gfx(gfx_paths):
     gfx = {}
     gfx_files = defaultdict(list)
     for path in gfx_paths:
         path = os.path.join(path)
         with open(path, 'r') as f:
-            lines = f.readlines()
-        spriteType = False
-        name = ''
-        texturefile = ''
-        noOfFrames = 1
-        for line in lines:
-            line = re.sub(r'#.*', '', line, re.IGNORECASE)
-            spriteType = re.search(r'\s*spriteType', line, re.IGNORECASE)
-            if spriteType and name and texturefile:
-                gfx[name] = texturefile
-                gfx_files[os.path.normpath(texturefile)].append((name, noOfFrames))
-                spriteType = False
-                name = ''
-                texturefile = ''
-                noOfFrames = 1
-            match = re.match(r'\s*name\s*=\s*"(.+?)"\s*$', line, re.IGNORECASE)
+            file_contents = f.read()
+        file_contents = re.sub(r'#.*\n', ' ', file_contents, re.IGNORECASE)
+        file_contents = file_contents.replace('\n', ' ')
+        spriteTypes = re.findall(r'spriteType\s*=\s*\{[^\{\}]*?\}', file_contents, re.IGNORECASE)
+        for spriteType in spriteTypes:
+            name = ''
+            texturefile = ''
+            noOfFrames = 1
+            print(spriteType)
+            match = re.search(r'\s+name\s*=\s*\"(.+?)\"', spriteType, re.IGNORECASE)
             if match:
                 name = match.group(1)
-            match = re.match(r'\s*texturefile\s*=\s*"(.+?)"\s*$', line, re.IGNORECASE)
+            match = re.search(r'\s+texturefile\s*=\s*\"(.+?)\"', spriteType, re.IGNORECASE)
             if match:
-                texturefile = match.group(1)
-            match = re.match(r'\s*noOfFrames\s*=\s*([0-9]+?)\s*$', line, re.IGNORECASE)
+                texturefile = os.path.normpath(match.group(1))
+            match = re.search(r'\s+noOfFrames\s*=\s*([0-9]+?)', spriteType, re.IGNORECASE)
             if match:
                 noOfFrames = int(match.group(1))
+            if name and texturefile:
+                st = SpriteType(name, texturefile, noOfFrames)
+                gfx[name] = st
+                gfx_files[texturefile].append(st)
 
     return (gfx, gfx_files)
 
@@ -81,15 +91,13 @@ def generate_icons_section(icons_dict, path_dicts, remove_str = None):
     icon_entries = []
     icons_num = 0
 
-    for icon, path in icons_dict.items():
+    for key, icon in icons_dict.items():
+        name = icon.name
+        path = icon.texturefile
         img_src = os.path.splitext(path)[0] + '.png'
         if not os.path.exists(img_src):
             try:
-                frames = 1
-                for path_dict in path_dicts: #hacky solution for now
-                    if path in path_dict:
-                        frames = path_dict[path][0][1]
-                        break
+                frames = icon.frames
                 convert_image(path, frames)
             except:
                 print("EXCEPTION with %s" % path)
@@ -98,13 +106,13 @@ def generate_icons_section(icons_dict, path_dicts, remove_str = None):
                 print(ex_message)
         if os.path.exists(img_src):
             if remove_str:
-                icon = icon.replace(remove_str, "")
+                name = name.replace(remove_str, "")
             icons_num += 1
             icon_entries.append('''
           <div data-clipboard-text="%s" data-search-text="%s" title="%s" class="icon">
             <img src="%s" alt="%s">
           </div>
-        ''' % (icon, icon, icon, img_src, icon))
+        ''' % (name, name, name, img_src, name))
     return (icon_entries, icons_num)
 
 def generate_html(goals, ideas, texticons, events, news_events, agencies, decisions, decisions_cat, decisions_pics, path_dicts, title, favicon):
