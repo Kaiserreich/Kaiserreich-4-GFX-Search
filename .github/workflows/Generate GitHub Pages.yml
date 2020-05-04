@@ -18,8 +18,6 @@ on:
     - 'gfx/interface/event_news_pictures/**/*.tga'
     - 'gfx/interface/decisions/**/*.dds'
     - 'gfx/interface/decisions/**/*.tga'
-    - 'gfx/interface/decisions/pictures/**/*.dds'
-    - 'gfx/interface/decisions/pictures/**/*.tga'
     - 'gfx/interface/goals/**/*.dds'
     - 'gfx/interface/goals/**/*.tga'
     - 'gfx/interface/ideas/**/*.dds'
