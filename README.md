@@ -4,4 +4,6 @@ This repository creates the [Kaiserreich GFX Search website](https://kaiserreich
 
 It auto generates from the main repo, so you don't need to do anything when you add, remove or adjust GFX.
 
+Checkout [HoI4 GFX Search website](https://yard1.github.io/HoI4-GFX-Search/) for vanilla GFX.
+
 Huge credit to Yard1 for creating this tool.
