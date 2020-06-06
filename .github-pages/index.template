@@ -260,6 +260,7 @@
   <div class="container">
     <section class="header">
       <h2 class="title">@TITLE</h1>
+      <a href="https://yard1.github.io/HoI4-GFX-Search/">Looking for vanilla GFX? Click for HoI4 Icon Search.</a>
     </section>
     <div id="app">
       <div class="search-bar">
