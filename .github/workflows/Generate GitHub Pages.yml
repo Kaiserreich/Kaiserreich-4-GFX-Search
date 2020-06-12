@@ -7,26 +7,6 @@ on:
     - gh-pages
     paths:
     - '.github/workflows/Generate GitHub Pages.yml'
-    - '.github-pages/**/*'
-    - '.gitignore'
-    - 'images/**/*'
-    - 'gfx/texticons/**/*.dds'
-    - 'gfx/texticons/**/*.tga'
-    - 'gfx/event_pictures/**/*.dds'
-    - 'gfx/event_pictures/**/*.tga'
-    - 'gfx/event_news_pictures/**/*.dds'
-    - 'gfx/event_news_pictures/**/*.tga'
-    - 'gfx/interface/decisions/**/*.dds'
-    - 'gfx/interface/decisions/**/*.tga'
-    - 'gfx/interface/goals/**/*.dds'
-    - 'gfx/interface/ideas/**/*.dds'
-    - 'gfx/interface/goals/**/*.tga'
-    - 'gfx/interface/ideas/**/*.tga'
-    - 'gfx/interface/operatives/agencies/**/*.dds'
-    - 'gfx/interface/operatives/agencies/**/*.tga'
-    - 'interface/**/*.gfx'
-    - 'interface/*.gfx'
-  repository_dispatch:
 
 jobs:
   build:
@@ -45,27 +25,22 @@ jobs:
         token: ${{ secrets.GHPAGES_PUSH_TOKEN }}
         ref: master
         path: gh-pages
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.8
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r $GITHUB_WORKSPACE/gh-pages/.github-pages/requirements.txt
-    - name: Check modified files
-      if: github.event_name == 'repository_dispatch'
-      run: |
-        MODIFIED_FILES="${{ github.event.client_payload.files }}" 
-        export MODIFIED_FILES
-        echo "::set-env name=MODIFIED_FILES::$MODIFIED_FILES"
-        echo $MODIFIED_FILES
     - name: Generate webpage
-      run: |
-        cp -rf $GITHUB_WORKSPACE/gfx/ $GITHUB_WORKSPACE/gh-pages/
-        cp -rf $GITHUB_WORKSPACE/interface $GITHUB_WORKSPACE/gh-pages
-        cd $GITHUB_WORKSPACE/gh-pages
-        python .github-pages/hoi4_icon_search_gen.py --goals "./interface/KR_goals.gfx" --ideas "./interface/KR_ideas.gfx" "./interface/KR_ideas_africa.gfx" "./interface/KR_ideas_americas.gfx" "./interface/KR_ideas_asia.gfx" "./interface/KR_ideas_europe.gfx" --texticons "./interface/KR_texticons.gfx" --events "./interface/KR_event_pictures.gfx" --news-events "./interface/KR_event_news_pictures.gfx" --agencies "./interface/KR_countryintelligenceagencyview.gfx"  --decisions "./interface/KR_decisions.gfx" --decisions-cat "./interface/KR_decisions_categories.gfx" --decisions-pics "./interface/KR_decisions_categories_pictures.gfx" --title "Kaiserreich GFX Search" --favicon "./kr_icon.png" --modified-images-str "$MODIFIED_FILES"
+      uses: Yard1/hoi4-icon-search-action@master
+      with:
+        goals: './interface/KR_goals.gfx'
+        ideas: './interface/KR_ideas.gfx ./interface/KR_ideas_africa.gfx ./interface/KR_ideas_americas.gfx ./interface/KR_ideas_asia.gfx ./interface/KR_ideas_europe.gfx'
+        texticons: './interface/KR_texticons.gfx'
+        events: './interface/KR_event_pictures.gfx'
+        newsEvents: './interface/KR_event_news_pictures.gfx'
+        agencies: './interface/KR_countryintelligenceagencyview.gfx'
+        decisions: './interface/KR_decisions.gfx'
+        decisionsCat: './interface/KR_decisions_categories.gfx'
+        decisionsPics: './interface/KR_decisions_categories_pictures.gfx'
+        favicon: './kr_icon.png'
+        title: 'Kaiserreich GFX Search'
+        modPath: 'gh-pages'
+        modifiedFiles: ${{ github.event.client_payload.files }}
     - name: Commit and push files
       run: |
         cd $GITHUB_WORKSPACE/gh-pages
@@ -76,8 +51,8 @@ jobs:
         sed -i "s/@UPDATE_DATE/${PYDATE}/g" index.html
         git config --global user.email "antoni.baum@protonmail.com"
         git config --global user.name "Yard1"
-        git pull
-        git pull
+        git pull --no-rebase
+        git pull --no-rebase
         git add -A
         git commit -m "Update webpage (automatic)"
         git push
