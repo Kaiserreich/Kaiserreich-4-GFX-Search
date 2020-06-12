@@ -7,6 +7,7 @@ on:
     - gh-pages
     paths:
     - '.github/workflows/Generate GitHub Pages.yml'
+  repository_dispatch:
 
 jobs:
   build:
