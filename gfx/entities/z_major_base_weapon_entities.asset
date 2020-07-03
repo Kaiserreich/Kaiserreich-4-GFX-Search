@@ -2946,12 +2946,12 @@ entity = {
 
 
 #########################
-### POLAND - 38M MORS ###
+### POLAND - 38M ###
 #########################
 
 
 entity = {
-	name = "KR_infantry_38Mors_entity"
+	name = "KR_infantry_38M_entity"
 	pdxmesh = "EEU_infantry_rifle_mesh"
 	
 	default_state = "idle"
@@ -2994,7 +2994,7 @@ entity = {
 }	
 
 ######################
-### POLAND - wz.39 ###
+### POLAND - wz.39 Mors ###
 ######################
 
 entity = {
