@@ -5,19 +5,19 @@
 entity = {
 	name = "eastern_european_gfx_infantry_entity"
 	pdxmesh = "EEU_infantry_rifle_mesh"
-	clone = "KR_infantry_98k_entity"	
+	clone = "KR_infantry_EE1_entity"	
 }
 
 entity = {
 	name = "eastern_european_gfx_infantry_desert_entity"
 	pdxmesh = "EEU_infantry_rifle_desert_mesh"
-	clone = "KR_infantry_98k_entity"	
+	clone = "KR_infantry_EE1_entity"	
 }
 
 entity = {
 	name = "eastern_european_gfx_infantry_snow_entity"
 	pdxmesh = "EEU_infantry_rifle_snow_mesh"
-	clone = "KR_infantry_98k_entity"	
+	clone = "KR_infantry_EE1_entity"	
 }
 
 #2
@@ -25,19 +25,19 @@ entity = {
 entity = {
 	name = "eastern_european_gfx_infantry_2_entity"
 	pdxmesh = "EEU_infantry_mg_mesh"
-	clone = "KR_infantry_MP38_entity"	
+	clone = "KR_infantry_EE2_entity"	
 }
 
 entity = {
 	name = "eastern_european_gfx_infantry_desert_2_entity"
 	pdxmesh = "EEU_infantry_mg_desert_mesh"
-	clone = "KR_infantry_MP38_entity"	
+	clone = "KR_infantry_EE2_entity"	
 }
 
 entity = {
 	name = "eastern_european_gfx_infantry_snow_2_entity"
 	pdxmesh = "EEU_infantry_mg_snow_mesh"
-	clone = "KR_infantry_MP38_entity"	
+	clone = "KR_infantry_EE2_entity"	
 }
 
 #3
@@ -45,19 +45,19 @@ entity = {
 entity = {
 	name = "eastern_european_gfx_infantry_3_entity"
 	pdxmesh = "EEU_infantry_mg_2_mesh"
-	clone = "KR_infantry_G43_entity"	
+	clone = "KR_infantry_EE3_entity"	
 }
 
 entity = {
 	name = "eastern_european_gfx_infantry_desert_3_entity"
 	pdxmesh = "EEU_infantry_mg_2_desert_mesh"
-	clone = "KR_infantry_G43_entity"	
+	clone = "KR_infantry_EE3_entity"	
 }
 
 entity = {
 	name = "eastern_european_gfx_infantry_snow_3_entity"
 	pdxmesh = "EEU_infantry_mg_2_snow_mesh"
-	clone = "KR_infantry_G43_entity"	
+	clone = "KR_infantry_EE3_entity"	
 }
 
 ############
