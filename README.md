@@ -1,4 +1,4 @@
-# Kaiserreich 4 GFX Icon Search
+# Kaiserreich 4 GFX Search
 
 This repository creates the [Kaiserreich GFX Search website](https://kaiserreich.github.io/Kaiserreich-4-GFX-Search/), helping you to easily find GFX.
 
