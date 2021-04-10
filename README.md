@@ -6,6 +6,6 @@ It auto generates from the main repo, so you don't need to do anything when you 
 
 Check out [HoI4 GFX Search website](https://yard1.github.io/HoI4-GFX-Search/) for vanilla GFX.
 
-See the [Vanilla GFX Search repo](https://github.com/Yard1/HoI4-GFX-Search) to file bug reports and make suggestions
+See the [Vanilla GFX Search repo](https://github.com/Yard1/HoI4-GFX-Search) to file bug reports and make suggestions.
 
 Huge credit to Yard1 for creating this tool.
