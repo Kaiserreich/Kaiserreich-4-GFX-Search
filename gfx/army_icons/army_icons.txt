@@ -891,3 +891,4 @@ naval_equipment_role = {
 		name = "Crab"
 	}
 }
+
