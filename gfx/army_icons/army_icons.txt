@@ -894,7 +894,7 @@ naval_equipment_role = {
 
 equipment_niche_insignias = {
 	gfx = GFX_niche_icon_strip
-	
+
 	icon = {
 	}
 	icon = {
