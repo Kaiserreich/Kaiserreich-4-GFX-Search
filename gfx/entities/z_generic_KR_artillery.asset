@@ -1,11 +1,11 @@
 #			! INFORMATION !
 #
-#			Artillery uses three parts: 
+#			Artillery uses three parts:
 #				A frame consisting of an empty scene with 3 joints,
 #				2 of which are called "infantry" and "artillery".
 #				An artillery gun which is the same for all nationalities.
 #				A regular infantry unit.
-#				
+#
 #			The artillery gun and infantry unit attaches to the different joints on the frame (artillery and infantry) and it will use
 #			a certain infantry unit depending on what country specific artillery entity it is attached to.
 #
@@ -18,7 +18,7 @@
 
 ##############################
 ###       Artillery        ###
-##############################	
+##############################
 
 #############
 ### GUN 1 ###
