@@ -920,5 +920,5 @@ air_niche = {
 	icon = {
 	}
 	icon = {
-	}	
+	}
 }
