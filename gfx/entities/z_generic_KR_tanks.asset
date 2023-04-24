@@ -1,4 +1,5 @@
 ### In this file all new entities are defined that use custom meshes
+### EE tanks
 entity = {
 	name = "EE_light_armor_entity"
 	pdxmesh = "EE_tank_light_mesh"
@@ -15,4 +16,20 @@ entity = {
 	name = "EE_heavy_armor_entity"
 	pdxmesh = "EE_tank_heavy_mesh"
 	clone = "GER_medium_armor_entity" 
+}
+### Reskins of base game armor
+entity = {
+	name = "USA_light_armor_alt_entity"
+	pdxmesh = "USA_tank_light_alt_mesh"
+	clone = "USA_light_armor_entity" 
+}
+entity = {
+	name = "GER_medium_armor_alt_entity"
+	pdxmesh = "GER_tank_medium_alt_mesh"
+	clone = "GER_medium_armor_entity" 
+}
+entity = {
+	name = "SOV_heavy_armor_alt_entity"
+	pdxmesh = "SOV_tank_heavy_alt_mesh"
+	clone = "SOV_heavy_armor_entity" 
 }
