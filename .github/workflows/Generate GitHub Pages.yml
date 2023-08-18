@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Kaiserreich/Kaiserreich-4-Development master branch
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         token: ${{ secrets.GHPAGES_PUSH_TOKEN }}
         ref: master
