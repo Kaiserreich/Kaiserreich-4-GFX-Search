@@ -29,15 +29,15 @@ jobs:
     - name: Generate webpage
       uses: Yard1/hoi4-icon-search-action@master
       with:
-        goals: './interface/KR_goals.gfx'
-        ideas: './interface/KR_ideas.gfx ./interface/KR_ideas_africa.gfx ./interface/KR_ideas_americas.gfx ./interface/KR_ideas_asia.gfx ./interface/KR_ideas_europe.gfx'
-        texticons: './interface/KR_texticons.gfx'
-        events: './interface/KR_event_pictures.gfx'
-        newsEvents: './interface/KR_event_news_pictures.gfx'
-        agencies: './interface/KR_countryintelligenceagencyview.gfx'
-        decisions: './interface/KR_decisions.gfx'
-        decisionsCat: './interface/KR_decisions_categories.gfx'
-        decisionsPics: './interface/KR_decisions_categories_pictures.gfx'
+        goals: './interface/kaiserreich/goals.gfx'
+        ideas: './interface/kaiserreich/ideas.gfx ./interface/kaiserreich/ideas_africa.gfx ./interface/kaiserreich/ideas_americas.gfx ./interface/kaiserreich/ideas_asia.gfx ./interface/kaiserreich/ideas_europe.gfx'
+        texticons: './interface/kaiserreich/texticons.gfx'
+        events: './interface/kaiserreich/event_pictures.gfx'
+        newsEvents: './interface/kaiserreich/event_news_pictures.gfx'
+        agencies: './interface/kaiserreich/countryintelligenceagencyview.gfx'
+        decisions: './interface/kaiserreich/decisions.gfx'
+        decisionsCat: './interface/kaiserreich/decisions_categories.gfx'
+        decisionsPics: './interface/kaiserreich/decisions_categories_pictures.gfx'
         favicon: './kr_icon.png'
         title: 'Kaiserreich GFX Search'
         modPath: 'gh-pages'
@@ -57,4 +57,3 @@ jobs:
         git add -A
         git commit -m "Update webpage (automatic)"
         git push
-
