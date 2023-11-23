@@ -48,6 +48,7 @@ jobs:
         if [ -z "$(git status --porcelain)" ]; then 
           exit 0
         fi
+        rm -rf gfx/leaders
         PYDATE=$(python -c "import datetime; print(datetime.datetime.utcnow())")
         sed -i "s/@UPDATE_DATE/${PYDATE}/g" index.html
         git config --global user.email "antoni.baum@protonmail.com"
