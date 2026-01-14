@@ -39,13 +39,13 @@ entity = {
 
 entity = {
 	name = "AST_infantry_3_entity"
-	pdxmesh = "KR_AST_infantry_mg_mesh"
+	pdxmesh = "KR_AST_infantry_rifle_mesh"
 	clone = "KR_infantry_BR3_entity"
 }
 
 entity = {
 	name = "AST_infantry_3_entity_snow"
-	pdxmesh = "KR_AST_infantry_mg_mesh"
+	pdxmesh = "KR_AST_infantry_rifle_snow_mesh"
 	clone = "KR_infantry_BR3_entity"
 }
 
