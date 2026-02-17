@@ -11,13 +11,13 @@
 
 entity = {
 	name = "AST_infantry_entity"
-	pdxmesh = "KR_AST_infantry_rifle_mesh"
+	pdxmesh = "AST_infantry_rifle_mesh"
 	clone = "KR_infantry_BR1_entity"
 }
 
 entity = {
 	name = "AST_infantry_entity_snow"
-	pdxmesh = "KR_AST_infantry_rifle_snow_mesh"
+	pdxmesh = "AST_infantry_rifle_snow_mesh"
 	clone = "KR_infantry_BR1_entity"
 }
 
@@ -25,13 +25,13 @@ entity = {
 
 entity = {
 	name = "AST_infantry_2_entity"
-	pdxmesh = "KR_AST_infantry_mg_mesh"
+	pdxmesh = "AST_infantry_mg_mesh"
 	clone = "KR_infantry_BR2_entity"
 }
 
 entity = {
 	name = "AST_infantry_2_entity_snow"
-	pdxmesh = "KR_AST_infantry_mg_snow_mesh"
+	pdxmesh = "AST_infantry_mg_snow_mesh"
 	clone = "KR_infantry_BR2_entity"
 }
 
@@ -39,13 +39,13 @@ entity = {
 
 entity = {
 	name = "AST_infantry_3_entity"
-	pdxmesh = "KR_AST_infantry_rifle_mesh"
+	pdxmesh = "AST_infantry_rifle_mesh"
 	clone = "KR_infantry_BR3_entity"
 }
 
 entity = {
 	name = "AST_infantry_3_entity_snow"
-	pdxmesh = "KR_AST_infantry_rifle_snow_mesh"
+	pdxmesh = "AST_infantry_rifle_snow_mesh"
 	clone = "KR_infantry_BR3_entity"
 }
 
@@ -59,7 +59,7 @@ entity = {
 entity = {
 	clone = "infantry_rider_entity"
 	name = "AST_infantry_rider_entity"
-	pdxmesh = "KR_AST_infantry_rifle_mesh"
+	pdxmesh = "AST_infantry_rifle_mesh"
 
 	attach = { name = "rifle1"	Right_Hand_node = "MI_ENG_infantry_weapon_rifle_No4_right_entity" }
 	attach = { name = "rifle2"	Left_Hand_node = "MI_ENG_infantry_weapon_rifle_No4_left_entity" }
@@ -69,7 +69,7 @@ entity = {
 entity = {
 	clone = "generic_infantry_mg_rider_entity"
 	name = "AST_infantry_mg_rider_entity"
-	pdxmesh = "KR_AST_infantry_mg_mesh"
+	pdxmesh = "AST_infantry_mg_mesh"
 
 	attach = { name = "rifle1"	Right_Hand_node = "MI_ENG_infantry_weapon_mg_Sten_right_entity" }
 	attach = { name = "rifle2"	Left_Hand_node = "MI_ENG_infantry_weapon_mg_Sten_left_entity" }
@@ -167,7 +167,7 @@ entity = {
 entity = {
 	clone = "bicycle_rider_rifle_entity"
 	name = "AST_bicycle_rider_rifle_entity"
-	pdxmesh = "KR_AST_infantry_rifle_mesh"
+	pdxmesh = "AST_infantry_rifle_mesh"
 
 	attach = { name = "rifle1"	Right_Hand_node = "MI_ENG_infantry_weapon_rifle_No4_right_entity" }
 	attach = { name = "rifle2"	Left_Hand_node = "MI_ENG_infantry_weapon_rifle_No4_left_entity" }
@@ -192,7 +192,7 @@ entity = {
 entity = {
 	clone = "bicycle_rider_mg_entity"
 	name = "AST_bicycle_rider_mg_entity"
-	pdxmesh = "KR_AST_infantry_mg_mesh"
+	pdxmesh = "AST_infantry_mg_mesh"
 
 	attach = { name = "rifle1"	Right_Hand_node = "MI_ENG_infantry_weapon_mg_Sten_right_entity" }
 	attach = { name = "rifle2"	Left_Hand_node = "MI_ENG_infantry_weapon_mg_Sten_left_entity" }
