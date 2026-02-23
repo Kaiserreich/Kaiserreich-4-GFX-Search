@@ -12,18 +12,6 @@ entity = {
 	clone = "KR_infantry_BR1_entity"
 }
 
-entity = {
-	name = "QUE_infantry_entity_snow"
-	pdxmesh = "CAN_infantry_rifle_snow_mesh"
-	clone = "KR_infantry_BR1_entity"
-}
-
-entity = {
-	name = "QUE_infantry_entity_desert"
-	pdxmesh = "CAN_infantry_rifle_desert_mesh"
-	clone = "KR_infantry_BR1_entity"
-}
-
 #2
 
 entity = {
@@ -32,35 +20,11 @@ entity = {
 	clone = "KR_infantry_BR2_entity"
 }
 
-entity = {
-	name = "QUE_infantry_2_entity_snow"
-	pdxmesh = "CAN_infantry_mg_snow_mesh"
-	clone = "KR_infantry_BR2_entity"
-}
-
-entity = {
-	name = "QUE_infantry_2_entity_desert"
-	pdxmesh = "CAN_infantry_mg_desert_mesh"
-	clone = "KR_infantry_BR2_entity"
-}
-
 #3
 
 entity = {
 	name = "QUE_infantry_3_entity"
 	pdxmesh = "CAN_infantry_mg_2_mesh"
-	clone = "KR_infantry_BR3_entity"
-}
-
-entity = {
-	name = "QUE_infantry_3_entity_snow"
-	pdxmesh = "CAN_infantry_mg_2_snow_mesh"
-	clone = "KR_infantry_BR3_entity"
-}
-
-entity = {
-	name = "QUE_infantry_3_entity_desert"
-	pdxmesh = "CAN_infantry_mg_2_desert_mesh"
 	clone = "KR_infantry_BR3_entity"
 }
 
