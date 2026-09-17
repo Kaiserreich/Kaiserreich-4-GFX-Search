@@ -272,7 +272,6 @@ entity = {
 	game_data = {
 		texture_anim_speed = 0.4
 	}
-
 }
 
 #Panzer IV (with leaf camo)
@@ -1229,7 +1228,6 @@ entity = {
 	game_data = {
 		texture_anim_speed = 0.4
 	}
-
 }
 
 entity = {
